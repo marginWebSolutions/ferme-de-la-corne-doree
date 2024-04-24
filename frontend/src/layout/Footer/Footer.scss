@@ -1,15 +1,20 @@
 @import "../../Utils/variables.scss";
+@import "../../Utils/mixins.scss";
 
 .footer {
     display: flex;
     justify-content: center;
     padding: 40px;
+    background: rgba($primary, 0.4);
     &__content {
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 5px;
         color: $text;
+        @include tablet {
+            font-size: 0.8rem;
+        }
     }
 }
 
@@ -17,20 +22,20 @@
     font-family: 'Manjari';
     font-weight: 100;
     font-size: 1rem;
-    color: grey;
+    // color: grey;
     display: flex;
     align-items: center;
 
     &--M {
         font-size: 1.4rem;
-        color: #0b6d70;
+        // color: #0b6d70;
         position: relative;
         top: -1px;
     }
 
     &--A {
         font-size: 1.4rem;
-        color: #8BCCA7;
+        // color: #8BCCA7;
         position: relative;
         top: -1px;
     }

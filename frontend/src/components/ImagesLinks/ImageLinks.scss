@@ -2,16 +2,27 @@
 @import "../../Utils/mixins.scss";
 
 .imagelinks {
-    display: flex;
-    align-items: center;
     width: 100%;
     height: 450px;
+    padding: 40px 0 10px;
 
     &__container {
+        display: flex;
+        flex-direction: column;
         width: 85vw;
         margin: auto;
+    }
+
+    &__title {
+        align-self: flex-end;
+        font-size: clamp(28px, 2rem, 36px);
+        text-transform: uppercase;
+    }
+
+    &__content {
         display: flex;
         justify-content: space-between;
+        margin-top: 40px;
     }
 
     &__link {
@@ -22,19 +33,20 @@
         box-shadow: $box-shadow;
         border-radius: 10px;
 
+        &__title {
+            font-size: clamp(20px, 1.5rem, 28px);
+            color: rgba($text, 0.9);
+            position: absolute;
+            top: 25px;
+            left: 25px;
+
+            @include mobile {
+                left: 15px;
+            }
+        }
+
         &:hover {
             transform: scale(1.1);
-        }
-    }
-
-    &__title {
-        font-size: clamp(20px, 1.5rem, 28px);
-        color: rgba($text, 0.9);
-        position: absolute;
-        top: 25px;
-        left: 25px;
-        @include mobile {
-            left: 15px;;
         }
     }
 

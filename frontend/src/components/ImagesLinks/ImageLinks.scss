@@ -33,6 +33,9 @@
         position: absolute;
         top: 25px;
         left: 25px;
+        @include mobile {
+            left: 15px;;
+        }
     }
 
     &__image {

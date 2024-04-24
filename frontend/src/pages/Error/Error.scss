@@ -1,0 +1,46 @@
+@import "../../Utils/variables.scss";
+@import "../../Utils/mixins.scss";
+
+.error {
+    height: 76vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    font-size: clamp(28px, 2rem, 36px);
+
+    @include tablet {
+        height: 80vh;
+        gap: 40px;
+    }
+
+    @include mobile {
+        font-size: clamp(20px, 1.5rem, 28px);
+        gap: 30px;
+    }
+
+    &__link {
+        color: $text;
+        transition: color 0.1s ease-in-out;
+
+        &:hover {
+            color: $primary;
+            opacity: 0.7;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        max-width: 30vw;
+        object-fit: cover;
+
+        @include tablet {
+            max-width: 70vw;
+        }
+
+        @include mobile {
+            max-width: 80vw;
+        }
+    }
+}

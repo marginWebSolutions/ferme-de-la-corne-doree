@@ -1,0 +1,21 @@
+@import "../../Utils/variables.scss";
+
+.highlight {
+    position: absolute;
+    bottom: -15px; 
+    left: -5%;
+    height: 30px;
+    width: 30%;
+    background: rgba($primary, 0.4);
+    transition: width 1.3s ease-in-out;
+    &--small {
+      height: 20px;
+      bottom: -9px;
+      left: -7.5%;
+    }
+  }
+
+.title-container {
+  position: relative;
+  display: inline-block;
+}

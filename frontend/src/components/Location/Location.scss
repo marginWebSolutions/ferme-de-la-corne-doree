@@ -1,0 +1,74 @@
+@import "../../Utils/variables.scss";
+@import "../../Utils/mixins.scss";
+
+.location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+
+    @include tablet {
+        width: 64%;
+    }
+
+    @include mobile {
+        width: 85%;
+    }
+    
+    &__title {
+        font-size: clamp(20px, 1.5rem, 28px);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin: auto;
+        width: 100%;
+        font-size: clamp(14px, 1rem, 18px);
+
+        @include tablet {
+            font-size: clamp(16px, 1.2rem, 24px);
+            padding: 20px 0 40px;
+        }
+
+        @include mobile {
+            width: 100%;
+            line-height: 1.2;
+            align-items: flex-start;
+        }
+
+        span {
+            font-weight: 800;
+        }
+
+        svg {
+            font-size: clamp(20px, 1.3rem, 28px);
+            margin-right: 5px;
+            color: $accent;
+        }
+    }
+
+    &__map {
+        width: 90%;
+        height: 63%;
+        padding-top: 40px;
+
+        @include tablet {
+            width: 60vw;
+            height: 40vh;
+        }
+
+        @include mobile{
+            width: 100%;
+        }
+
+        iframe {
+            border: 1px solid $accent;
+            width: 100%;
+            height: 100%;
+            
+        }
+    }
+}

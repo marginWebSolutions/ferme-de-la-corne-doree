@@ -1,0 +1,47 @@
+@import "../../../Utils/variables.scss";
+@import "../../../Utils/keyframes.scss";
+@import "../../../Utils/mixins.scss";
+
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+
+    select {
+        appearance: none;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        background: rgba($text, 0.1);
+        border-radius: 25px;
+        border: none;
+        outline-color: $primary;
+        font-size: clamp(12px, 0.875rem, 16px);
+        cursor: pointer;
+
+        @include tablet {
+            font-size: clamp(14px, 1rem, 18px);
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        border: solid $text;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        padding: 4px;
+        pointer-events: none;
+        cursor: pointer;
+    }
+
+    &.open::after {
+        animation: rotate-chevron 0.5s forwards;
+    }
+
+    &.close::after {
+        animation: rotate-chevron-reverse 0.5s forwards;
+    }
+}

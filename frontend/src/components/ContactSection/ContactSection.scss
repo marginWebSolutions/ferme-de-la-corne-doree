@@ -1,0 +1,39 @@
+@import "../../Utils/variables.scss";
+@import "../../Utils/mixins.scss";
+
+.ContactSection {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 0;
+
+    @include tablet {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        width: 40vw;
+        
+        @include tablet {
+            width: 100%;
+            order: 2;
+        }
+
+        @include mobile {
+            order: 2;
+            width: 85%;
+        }
+    }
+    
+    &__title {
+        font-size: clamp(20px, 1.5rem, 28px);
+    }
+}
+
+#Contact {
+    scroll-margin-top: 40px;
+}

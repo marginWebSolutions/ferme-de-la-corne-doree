@@ -1,0 +1,75 @@
+@import "../../Utils/variables.scss";
+@import "../../Utils/mixins.scss";
+
+.news {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+    background: $secondary;
+
+    &__container {
+        width: 85vw;
+        margin: auto;
+    }
+
+    &__title {
+        font-size: clamp(28px, 2rem, 36px);
+        text-transform: uppercase;
+        margin-bottom: 35px;
+    }
+
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: stretch;
+        text-align: center;
+
+        @include tablet {
+            gap: 20px;
+        }
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        width: 22vw;
+        padding: 30px;
+        background: rgba($background, 0.8);
+        border-radius: 15px;
+        box-shadow: $light-box-shadow;
+
+        @include tablet {
+            width: 85vw;
+        }
+
+        &--text {
+            font-size: clamp(16px, 1.25rem, 24px);
+            font-weight: 400;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: rgba($accent, 0.2);
+        border-radius: 15px;
+        padding: 10px;
+
+        &--title {
+            font-family: $text-font;
+            font-size: clamp(20px, 1.375rem, 24px);
+        }
+
+        &--date {
+            font-size: clamp(16px, 1.1rem, 20px);
+            font-weight: 400;
+        }
+    }
+}
+
+#News {
+    scroll-margin-top: 80px;
+}

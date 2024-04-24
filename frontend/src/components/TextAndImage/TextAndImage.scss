@@ -1,0 +1,66 @@
+@import "../../Utils/variables.scss";
+@import "../../Utils/mixins.scss";
+
+.textandimage {
+    display: flex;
+    align-items: center;
+    gap: 8vw;
+    padding: 20px 0;
+
+    &--reverse {
+        flex-direction: row-reverse;
+
+        .textandimage__text {
+            align-self: flex-end;
+        }
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        width: 85vw;
+        margin: auto;
+
+        @include tablet {
+            flex-direction: column;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    &__title {
+        font-size: clamp(28px, 2rem, 36px);
+        text-transform: uppercase;
+        align-self: start;
+
+        &--align-end {
+            align-self: end;
+        }
+    }
+
+    &__text {
+        font-weight: 400;
+        text-align: justify;
+        font-size: clamp(20px, 1.5rem, 28px);
+    }
+
+    &__illustration {
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 5px;
+        box-shadow: $box-shadow;
+
+        @include tablet {
+            display: none;
+        }
+
+        @include mobile {
+            display: none;
+        }
+    }
+}

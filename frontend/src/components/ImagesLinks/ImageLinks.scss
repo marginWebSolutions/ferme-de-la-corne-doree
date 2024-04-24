@@ -1,0 +1,44 @@
+@import "../../Utils/variables.scss";
+@import "../../Utils/mixins.scss";
+
+.imagelinks {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 450px;
+
+    &__container {
+        width: 85vw;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__link {
+        position: relative;
+        display: flex;
+        height: 350px;
+        transition: transform 0.2s ease-in-out;
+        box-shadow: $box-shadow;
+        border-radius: 10px;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    &__title {
+        font-size: clamp(20px, 1.5rem, 28px);
+        color: rgba($text, 0.9);
+        position: absolute;
+        top: 25px;
+        left: 25px;
+    }
+
+    &__image {
+        width: 40vw;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}

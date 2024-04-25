@@ -46,7 +46,7 @@ export default function Slideshow({ array }) {
           className={`SlideCard SlideCard${index === idx ? "" : "--hide"} SlideCard--${animationType}`}
           onAnimationEnd={handleAnimationEnd}
         >
-          <img src={item.src} alt={item.alt} width={1920} height={824} />
+          <img src={item.src} alt={item.alt} width={1920} height={951} />
         </div>
       ))}
       <div className="SlideCard__paginationContainer">

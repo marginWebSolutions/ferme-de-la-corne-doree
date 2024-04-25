@@ -19,6 +19,9 @@ export default function CheeseGallery() {
                             alt={item.alt}
                             caption={item.caption}
                             description={item.description}
+                            width={372}
+                            height={304}
+                            loading="lazy"
                         />
                     ))
                     }

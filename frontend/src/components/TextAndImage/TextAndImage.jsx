@@ -17,7 +17,7 @@ export default function TextAndImage({ sectionClass, title, text, src, alt, reve
                     <p className={`${sectionClass}__text`}>{text}</p>
                 </div>
                 <div className={`${sectionClass}__wrapper`}>
-                    <img className={`${sectionClass}__illustration`} src={src} alt={alt} />
+                    <img className={`${sectionClass}__illustration`} src={src} alt={alt} width={400} height={400} loading="lazy"/>
                 </div>
             </div>
         </section>

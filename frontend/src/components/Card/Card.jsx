@@ -1,9 +1,9 @@
 import './Card.scss';
 
-export default function Card({ src, alt, caption, description }) {
+export default function Card({ src, alt, caption, description, width, height, loading }) {
   return (
     <figure className="card">
-      <img src={src} alt={alt} width={303} height={304} loading='lazy' />
+      <img src={src} alt={alt} width={width} height={height} loading={loading} />
       <div className="card__description"><figcaption>{caption}</figcaption>{description}</div>
     </figure>
   );

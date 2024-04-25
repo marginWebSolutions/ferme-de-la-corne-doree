@@ -11,7 +11,7 @@ export default function Location({ infoTitle, info, src, width, height, loadingV
                     tag="h2">Coordonnées</Highlight>
             </div>
             <div className="location__map">
-                <iframe src={src} width={width} height={height} loading={loadingValue}></iframe>
+                <iframe src={src} width={width} height={height} loading={loadingValue} title="Map de la ferme de la corne dorée"></iframe>
             </div>
             <div className="location__content">
                 {infoTitle.map((title, index) =>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
@@ -19,19 +19,19 @@ function App() {
 	const validPaths = ['/', '/chevrerie', '/centre-equestre'];
 	const [showScrollToTop, setShowScrollToTop] = useState(false);
 
-	const checkScrollToTop = () => {
+	const checkScrollToTop = useCallback(() => {
 		const offset = window.scrollY;
 		if (!showScrollToTop && offset > 850) {
 			setShowScrollToTop(true);
 		} else if (showScrollToTop && offset <= 850) {
 			setShowScrollToTop(false);
 		}
-	};
+	}, [showScrollToTop]);
 
 	useEffect(() => {
 		window.addEventListener('scroll', checkScrollToTop);
 		return () => window.removeEventListener('scroll', checkScrollToTop);
-	}, [showScrollToTop]);
+	}, [checkScrollToTop]);
 
 	return (
 		<div className="App">
@@ -45,14 +45,19 @@ function App() {
 						<FontAwesomeIcon
 							icon={faChevronUp}
 							title="Retour en haut de la page"
-							onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+							onClick={() =>
+								window.scrollTo({ top: 0, behavior: 'smooth' })
+							}
 						/>
 					</div>
 				)}
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/chevrerie" element={<Chevrerie />} />
-					<Route path="/centre-equestre" element={<CentreEquestre />} />
+					<Route
+						path="/centre-equestre"
+						element={<CentreEquestre />}
+					/>
 					<Route path="*" element={<Error />} />
 				</Routes>
 				{validPaths.includes(location.pathname) && <News />}

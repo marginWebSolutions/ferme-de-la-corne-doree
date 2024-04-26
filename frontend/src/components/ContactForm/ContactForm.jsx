@@ -87,7 +87,7 @@ export default function Form() {
                     handleChange={handleChange}
                     placeholder='Sélectionnez un objet...'
                     required
-                    options={['Chèvrerie', 'Centre équestre']}
+                    options={['Chèvrerie', 'Centre-équestre']}
                 />
             </div>
             <div className="contact__form__inputs--wrapper">

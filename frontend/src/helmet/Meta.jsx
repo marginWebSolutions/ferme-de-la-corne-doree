@@ -18,6 +18,7 @@ export default function Meta() {
                 <meta property="og:url" content="https://www.lacornedoree.fr" />
                 <meta property="og:description" content="Découvrez la ferme de la corne dorée, production et vente de fromages de chèvre artisanaux et cours d'équitation western." />
                 <meta property="og:image" content="./img/logo_de_la_ferme_de_la_corne_doree.jpg" />
+                <meta property="og:site_name" content="Ferme de la corne dorée" />
             </Helmet>
         </>
     );

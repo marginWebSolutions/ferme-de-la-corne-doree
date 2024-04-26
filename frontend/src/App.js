@@ -11,6 +11,8 @@ import Chevrerie from './pages/Chevrerie/Chevrerie';
 import CentreEquestre from './pages/CentreEquestre/CentreEquestre';
 import Error from './pages/Error/Error';
 import Meta from './helmet/Meta';
+import JSONLD from './helmet/JSONLD';
+import Favicon from './helmet/Favicon';
 
 function App() {
 	const location = useLocation();
@@ -33,7 +35,9 @@ function App() {
 
 	return (
 		<div className="App">
+			<Favicon />
 			<Meta />
+			<JSONLD />
 			<Header />
 			<main>
 				{showScrollToTop && (

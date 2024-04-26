@@ -10,6 +10,7 @@ import Home from './pages/Home/Home';
 import Chevrerie from './pages/Chevrerie/Chevrerie';
 import CentreEquestre from './pages/CentreEquestre/CentreEquestre';
 import Error from './pages/Error/Error';
+import Meta from './helmet/Meta';
 
 function App() {
 	const location = useLocation();
@@ -32,6 +33,7 @@ function App() {
 
 	return (
 		<div className="App">
+			<Meta />
 			<Header />
 			<main>
 				{showScrollToTop && (

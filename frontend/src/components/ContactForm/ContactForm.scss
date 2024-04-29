@@ -126,6 +126,11 @@
             }
         }
 
+        .g-recaptcha {
+            align-self: center;
+            margin: 0 0 20px 0;
+        }
+        
         .clicked {
             animation: clicked 0.5s forwards;
         }

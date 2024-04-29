@@ -1,15 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Field, { FIELD_TYPES } from '../FormInputs/Field/Field';
 import Select from '../FormInputs/Select/Select';
 import './ContactForm.scss';
 
 export default function Form() {
-	const captchas = [
-		{ question: 'Combien font 7 + 2 ? *', answer: '9' },
-		{ question: 'Combien font 5 + 1 ? *', answer: '6' },
-		{ question: 'Combien font 6 + 1 ? *', answer: '7' },
-	];
 	const [formData, setFormData] = useState({
 		prenom: '',
 		nom: '',
@@ -19,15 +14,8 @@ export default function Form() {
 		captcha: '',
 	});
 	const [isSubmitted, setIsSubmitted] = useState(false);
-	const [currentCaptcha, setCurrentCaptcha] = useState(null);
 	const [errorMessage, setErrorMessage] = useState('');
 	const [clicked, setClicked] = useState(false);
-
-	useEffect(() => {
-		const randomCaptcha =
-			captchas[Math.floor(Math.random() * captchas.length)];
-		setCurrentCaptcha(randomCaptcha);
-	}, []);
 
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,29 +23,41 @@ export default function Form() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (currentCaptcha && formData.captcha !== currentCaptcha.answer) {
-			setErrorMessage('Veuillez saisir une réponse correcte.');
-			setTimeout(() => {
-				setErrorMessage('');
-			}, 5000);
+
+		const captcha = document.querySelector('#g-recaptcha-response').value;
+		if (!captcha) {
+			setErrorMessage(
+				'Veuillez cocher la case "Je ne suis pas un robot" ci-dessus.'
+			);
 			return;
 		}
-		setIsSubmitted(true);
-		setTimeout(() => {
-			setIsSubmitted(false);
-			setFormData({
-				prenom: '',
-				nom: '',
-				email: '',
-				objet: '',
-				message: '',
-				captcha: '',
+
+		const newFormData = { ...formData, captcha: captcha };
+
+		fetch('http://localhost:3000/contact', {
+			method: 'POST',
+			headers: {
+				Accept: 'application/json, text/plain, */*',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(newFormData),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				setIsSubmitted(true);
+				setTimeout(() => {
+					setIsSubmitted(false);
+					setFormData({
+						prenom: '',
+						nom: '',
+						email: '',
+						objet: '',
+						message: '',
+						captcha: '',
+					});
+					setErrorMessage('');
+				}, 5000);
 			});
-			setErrorMessage('');
-			const newRandomCaptcha =
-				captchas[Math.floor(Math.random() * captchas.length)];
-			setCurrentCaptcha(newRandomCaptcha);
-		}, 5000);
 	};
 
 	return (
@@ -118,18 +118,11 @@ export default function Form() {
 						required
 					/>
 				</div>
-				<div className="contact__form__inputs--wrapper">
-					<Field
-						label={currentCaptcha ? currentCaptcha.question : ''}
-						name="captcha"
-						id="captcha"
-						value={formData.captcha}
-						handleChange={handleChange}
-						placeholder="Réponse"
-						required
-					/>
-				</div>
 			</div>
+			<div
+				className="g-recaptcha"
+				data-sitekey="6Lcr9copAAAAAKd8i_zj9XWen6chTBp-mzdBsw9v"
+			></div>
 			<div
 				className={`message ${errorMessage ? 'errorMessage' : ''} ${
 					isSubmitted ? 'confirmMessage' : ''

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Krub:700|Manjari:400|Poppins:600');
 @import "./Utils/variables.scss";
+@import "./Utils/keyframes.scss";
 
 body .App {
   font-family: $text-font, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -58,4 +59,10 @@ input, label, select, textarea, button {
   bottom: 20px;
   right: 20px;
   cursor: pointer;
+  opacity: 0;
+  animation: chevron-fadeOut 2s forwards;
+
+  &.visible {
+    animation: chevron-fadeIn 2s forwards;
+  }
 }

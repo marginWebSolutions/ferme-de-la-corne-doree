@@ -41,7 +41,11 @@ function App() {
 			<Header />
 			<main>
 				{showScrollToTop && (
-					<div className="backToTop">
+					<div
+						className={`backToTop ${
+							showScrollToTop ? 'visible' : ''
+						}`}
+					>
 						<FontAwesomeIcon
 							icon={faChevronUp}
 							title="Retour en haut de la page"

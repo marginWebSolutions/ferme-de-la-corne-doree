@@ -3,21 +3,25 @@
 
 header {
     height: 12vh;
-    background: $background;
-    box-shadow: $light-box-shadow;
+    background: rgba($background, 0.2);
     position: sticky;
     z-index: 2;
     top: 0;
-    left: 50%;
     transition: all 0.5s ease;
 
     @include tablet {
-        height: clamp(50px, 8vh, 150px);
+        height: 0;
+        background: rgba($background, 0);
     }
 
     &.scrolled {
-        height: clamp(50px, 8vh, 150px);
+        height: clamp(40px, 8vh, 150px);
         box-shadow: $very-light-box-shadow;
+        background: rgba($background, 1);
+        @include tablet {
+            height: 0;
+            background: rgba($background, 0);
+        }
     }
 }
 
@@ -50,48 +54,36 @@ nav {
     position: absolute;
     top: 0;
 
+    @include tablet {
+        left: 1rem;
+    }
+
     &__img {
         width: clamp(100px, 12vw, 200px);
-        width: clamp(100px, 12vw, 200px);
         border-radius: 50%;
-        border: 0.8rem solid $background;
-        transition: transform 0.5s ease;
+        border: 0.8rem solid rgba($background, 0);
+        transition: all 0.5s ease;
         z-index: 2;
 
         @include tablet {
-            width: clamp(100px, 16vw, 200px);
             width: clamp(100px, 16vw, 200px);
         }
 
         &--open {
             position: fixed;
-            left: 1rem;
-        }
-    }
-
-    &__main-title {
-        font-size: clamp(14px, 1rem, 18px);
-        text-transform: uppercase;
-        position: fixed;
-        width: 30vw;
-        left: 16px;
-
-        @include tablet {
-            top: 3.5vh;
-        }
-
-        @include mobile {
-            top: 2vh;
-        }
-
-        &--open {
-            display: none;
+            left: 1rem;  
         }
     }
 
     &--scrolled {
         .logo__img {
             transform: translateY(-25%);
+            border: 0.8rem solid rgba($background, 1);
+            overflow: hidden;
+            @include tablet {
+                transform: translateY(-100%);
+                border: 0.8rem solid rgba($background, 0)
+            }
         }
     }
 }
@@ -159,7 +151,7 @@ nav {
             a {
                 text-decoration: none;
                 font-weight: 600;
-                color: $text;
+                color: rgba($text, 1);
                 font-size: clamp(0.8rem, 0.9vw, 1rem);
                 text-wrap: nowrap;
                 transition: color 0.1s ease-in-out;
@@ -177,7 +169,7 @@ nav {
         }
 
         .current {
-            color: $primary;
+            border-bottom: 2px solid $primary;
         }
     }
 

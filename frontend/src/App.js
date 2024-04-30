@@ -40,21 +40,20 @@ function App() {
 			<JSONLD />
 			<Header />
 			<main>
-				{showScrollToTop && (
-					<div
-						className={`backToTop ${
-							showScrollToTop ? 'visible' : ''
+
+				<div
+					className={`backToTop ${showScrollToTop ? 'visible' : 'hidden'
 						}`}
-					>
-						<FontAwesomeIcon
-							icon={faChevronUp}
-							title="Retour en haut de la page"
-							onClick={() =>
-								window.scrollTo({ top: 0, behavior: 'smooth' })
-							}
-						/>
-					</div>
-				)}
+				>
+					<FontAwesomeIcon
+						icon={faChevronUp}
+						title="Retour en haut de la page"
+						onClick={() =>
+							window.scrollTo({ top: 0, behavior: 'smooth' })
+						}
+					/>
+				</div>
+
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/chevrerie" element={<Chevrerie />} />

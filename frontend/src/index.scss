@@ -60,9 +60,13 @@ input, label, select, textarea, button {
   right: 20px;
   cursor: pointer;
   opacity: 0;
-  animation: chevron-fadeOut 2s forwards;
+  transition: 0.5s opacity ease-in;
 
   &.visible {
-    animation: chevron-fadeIn 2s forwards;
+    opacity: 1;
+  }
+
+  &.hidden {
+    opacity: 0;
   }
 }

@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/../frontend/public/index.html');
 });
 
-app.post('/contact', (req, res) => {
+app.post('/api/captcha', (req, res) => {
 	if (
 		req.body.captcha === undefined ||
 		req.body.captcha === '' ||

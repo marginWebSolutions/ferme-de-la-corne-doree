@@ -30,11 +30,12 @@ export default function Form() {
 				'Veuillez cocher la case "Je ne suis pas un robot" ci-dessus.'
 			);
 			return;
+		} else {
+			setErrorMessage('');
 		}
-
 		const newFormData = { ...formData, captcha: captcha };
 
-		fetch('http://localhost:3000/contact', {
+		fetch('http://localhost:3000/api/captcha', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json, text/plain, */*',
@@ -128,7 +129,8 @@ export default function Form() {
 					isSubmitted ? 'confirmMessage' : ''
 				}`}
 			>
-				{errorMessage || (isSubmitted && 'Merci pour votre message !')}
+				{errorMessage}
+				{isSubmitted && 'Merci pour votre message !'}
 			</div>
 			<button
 				type="submit"

@@ -2,6 +2,7 @@ import TextAndImage from "../../components/TextAndImage/TextAndImage";
 import Slideshow from "../../components/Slideshow/Slideshow";
 import ImageLinks from "../../components/ImagesLinks/ImageLinks";
 import homeSlideshow from "../../datas/slideshow.json";
+import Landing from "../../components/Landing/Landing";
 
 export default function Home() {
 
@@ -12,9 +13,15 @@ export default function Home() {
     return (
         <>
 
-            <Slideshow
-                array={slideshow}
+            <Landing
+                title="Ferme de la corne Dorée"
+                src="./img/taylor-brandon-3HmP1kOdACU-unsplash.jpg"
+                texts={["Élevage de Chèvres Alpines", "Équitation Western", "Vente de Fromages"]}
+                alt="Cavalière et son cheval à la Ferme de la corne dorée, avec un coucher de soleil sur les montagnes du Pilat"
+                width="1920"
+                height="1080"
             />
+
 
             <TextAndImage
                 sectionClass="textandimage"
@@ -24,6 +31,10 @@ export default function Home() {
                 Quod, consequatur natus nemo veniam explicabo quae dolorum cum ab autem ea ad quidem fugit! Aliquam neque tempore voluptates similique accusamus corrupti, ut voluptatibus officia quod expedita. Consequatur, quia sint?"
                 src="./img/illustration_ferme_de_la_corne_doree.jpg"
                 alt="photo de chèvre couché de soleil à la ferme de la corne dorée"
+            />
+
+            <Slideshow
+                array={slideshow}
             />
 
             <ImageLinks

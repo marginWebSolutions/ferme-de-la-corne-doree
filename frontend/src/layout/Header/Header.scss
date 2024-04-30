@@ -67,6 +67,7 @@ nav {
 
         @include tablet {
             width: clamp(100px, 16vw, 200px);
+            transition: all 1s ease;
         }
 
         &--open {
@@ -126,7 +127,7 @@ nav {
                 }
 
                 .current {
-                    color: $primary;
+                    border-bottom: 2px solid $primary;
                 }
             }
 

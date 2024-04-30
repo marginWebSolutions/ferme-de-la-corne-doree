@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const request = require('request');
 
+const Actualite = require('./models/actualite.model');
+const { error } = require('console');
+
 // Connect to MongoDB
 connectDB();
 
@@ -61,33 +64,26 @@ app.post('/api/captcha', (req, res) => {
 	});
 });
 
-app.get('/api/news', (req, res) => {
-	const news = [
-		{
-			title: 'News 1',
-			date: '2021-01-01',
-			content:
-				'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur dignissimos culpa quisquam corrupti voluptatibus aut tempore recusandae quas beatae sequi iure, odit officiis facere saepe ipsam ratione ut voluptas soluta. Exercitationem aspernatur aliquid distinctio sunt officiis architecto, voluptatum fugiat eius pariatur saepe soluta dolore asperiores fugit veniam cupiditate rerum culpa numquam inventore harum adipisci, facere minima quam. Quos, excepturi mollitia. Quod, consequatur natus nemo veniam explicabo quae dolorum cum ab autem ea ad quidem fugit! Aliquam neque tempore voluptates similique accusamus corrupti, ut voluptatibus officia quod expedita. Consequatur, quia sint? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
-		},
-		{
-			title: 'News 2',
-			date: '2021-01-02',
-			content:
-				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos culpa quisquam corrupti voluptatibus aut tempore recusandae quas beatae sequi iure, odit officiis facere saepe ipsam ratione ut voluptas soluta.',
-		},
-		{
-			title: 'News 3',
-			date: '2021-01-03',
-			content:
-				'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur dignissimos culpa quisquam corrupti voluptatibus aut tempore recusandae quas beatae sequi iure, odit officiis facere saepe ipsam ratione ut voluptas soluta. Exercitationem aspernatur aliquid distinctio sunt officiis architecto, voluptatum fugiat eius pariatur saepe soluta dolore asperiores fugit veniam cupiditate rerum culpa numquam inventore harum adipisci, facere minima quam. Quos, excepturi mollitia. Quod, consequatur natus nemo veniam explicabo quae dolorum cum ab autem ea ad quidem fugit! Aliquam neque tempore voluptates similique accusamus corrupti, ut voluptatibus officia quod expedita. Consequatur, quia sint?',
-		},
-	];
-	res.status(200).json(news);
+// @desc    Get all news
+// @route   GET /api/actualites
+// @access  Public
+app.get('/api/actualites', (req, res) => {
+	Actualite.find()
+		.then((actualites) => res.status(200).json(actualites))
+		.catch((error) => res.status(400).json({ error }));
 });
 
-app.post('/api/news', (req, res, next) => {
-	console.log(req.body);
-	res.status(201).json({ msg: 'News created' });
+// @desc    Add a news
+// @route   POST /api/actualites
+// @access  Private
+app.post('/api/actualites', (req, res, next) => {
+	const actualite = new Actualite({
+		...req.body,
+	});
+	actualite
+		.save()
+		.then(() => res.status(201).json({ message: 'Actualité enregistré !' }))
+		.catch((error) => res.status(400).json({ error }));
 });
 
 module.exports = app;

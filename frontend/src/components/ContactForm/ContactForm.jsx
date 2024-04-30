@@ -24,8 +24,8 @@ export default function Form() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		const captcha = document.querySelector('#g-recaptcha-response').value;
-		if (!captcha) {
+		const captchaElement = document.querySelector('#g-recaptcha-response');
+		if (captchaElement && !captchaElement.value) {
 			setErrorMessage(
 				'Veuillez cocher la case "Je ne suis pas un robot" ci-dessus.'
 			);
@@ -33,9 +33,12 @@ export default function Form() {
 		} else {
 			setErrorMessage('');
 		}
-		const newFormData = { ...formData, captcha: captcha };
+		const newFormData = { ...formData };
+		if (captchaElement && captchaElement.value) {
+			newFormData.captcha = captchaElement.value;
+		}
 
-		fetch('http://localhost:3000/api/captcha', {
+		fetch('http://localhost:3001/api/captcha', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json, text/plain, */*',

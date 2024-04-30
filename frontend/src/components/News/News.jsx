@@ -1,30 +1,37 @@
-import Article from "../Article/Article";
-import Highlight from "../Highlight/Highlight";
-import "./News.scss";
-import newsArray from "../../datas/news.json";
+import { useState, useEffect } from 'react';
+import Article from '../Article/Article';
+import Highlight from '../Highlight/Highlight';
+import './News.scss';
 
 export default function News() {
-    const sectionClass = "news";
+	const sectionClass = 'news';
+	const [newsData, setNewsData] = useState([]);
 
-    return (
-        <section className={`${sectionClass}`} id="News">
-            <div className={`${sectionClass}__container`}>
-                <div className={`${sectionClass}__title title-container`}>
-                    <Highlight tag="h2">Nos Actualités</Highlight>
-                </div>
-                <div className={`${sectionClass}__cards`}>
-                    {newsArray.map((item, index) => (
-                        <Article
-                            key={index}
-                            sectionClass={sectionClass}
-                            title={item.title}
-                            date={item.date}
-                            text={item.content}
-                            index={index}
-                        />
-                    ))}
-                </div>
-            </div>
-        </section>
-    )
+	useEffect(() => {
+		fetch('http://localhost:3001/api/actualites')
+			.then((response) => response.json())
+			.then((data) => setNewsData(data));
+	}, []);
+
+	return (
+		<section className={`${sectionClass}`} id="News">
+			<div className={`${sectionClass}__container`}>
+				<div className={`${sectionClass}__title title-container`}>
+					<Highlight tag="h2">Nos Actualités</Highlight>
+				</div>
+				<div className={`${sectionClass}__cards`}>
+					{newsData.map((item, index) => (
+						<Article
+							key={item._id}
+							sectionClass={sectionClass}
+							title={item.title}
+							date={item.date}
+							text={item.content}
+							index={index}
+						/>
+					))}
+				</div>
+			</div>
+		</section>
+	);
 }

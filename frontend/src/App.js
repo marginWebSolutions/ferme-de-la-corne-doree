@@ -40,10 +40,10 @@ function App() {
 			<JSONLD />
 			<Header />
 			<main>
-
 				<div
-					className={`backToTop ${showScrollToTop ? 'visible' : 'hidden'
-						}`}
+					className={`backToTop ${
+						showScrollToTop ? 'visible' : 'hidden'
+					}`}
 				>
 					<FontAwesomeIcon
 						icon={faChevronUp}

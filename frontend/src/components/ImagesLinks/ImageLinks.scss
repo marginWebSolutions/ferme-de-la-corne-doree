@@ -3,12 +3,14 @@
 
 .imagelinks {
     width: 100%;
-    height: 450px;
+    height: 100vh;
     padding: 40px 0 10px;
+    display: flex;
 
     &__container {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         width: 85vw;
         margin: auto;
     }
@@ -22,16 +24,36 @@
     &__content {
         display: flex;
         justify-content: space-between;
-        margin-top: 40px;
+        margin-top: 100px;
     }
 
     &__link {
         position: relative;
         display: flex;
-        height: 350px;
-        transition: transform 0.2s ease-in-out;
-        box-shadow: $box-shadow;
-        border-radius: 10px;
+        height: 50vh;
+        width: auto;
+        border-radius: 2px;
+        overflow: hidden;
+
+        &--overlay {
+            background: rgba($text, 0.9);
+            opacity: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                opacity: 0.2;
+
+                ~.imagelinks__image {
+                    transform: scale(1.1);
+                }
+            }
+        }
 
         &__title {
             font-size: clamp(20px, 1.5rem, 28px);
@@ -39,21 +61,20 @@
             position: absolute;
             top: 25px;
             left: 25px;
+            z-index: 2;
 
             @include mobile {
                 left: 15px;
             }
         }
-
-        &:hover {
-            transform: scale(1.1);
-        }
     }
 
     &__image {
-        width: 40vw;
+        position: relative;
+        width: 42vw;
         height: 100%;
         object-fit: cover;
-        border-radius: 10px;
+        transition: all 0.2s ease-in-out;
+
     }
 }

@@ -67,8 +67,8 @@ export default function Form() {
 	return (
 		<form method="POST" className="contact__form" onSubmit={handleSubmit}>
 			<div className="contact__form__inputs">
-				<div className="contact__form__inputs--wrapper">
-					<div>
+				<div className="contact__form__inputs--name-wrapper">
+					<div className="contact__form__inputs--wrapper">
 						<Field
 							label="Prénom *"
 							name="prenom"
@@ -78,7 +78,7 @@ export default function Form() {
 							required
 						/>
 					</div>
-					<div>
+					<div className="contact__form__inputs--wrapper">
 						<Field
 							label="Nom *"
 							name="nom"

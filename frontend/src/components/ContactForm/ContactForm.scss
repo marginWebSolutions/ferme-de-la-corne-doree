@@ -6,9 +6,14 @@
     &__form {
         display: flex;
         flex-direction: column;
+        width: 40vw;
+
+        @include tablet {
+            width: 60vw;
+        }
 
         @include mobile {
-            width: 100%;
+            width: 75vw;
         }
 
         &__inputs {
@@ -16,12 +21,14 @@
             flex-direction: column;
             gap: 30px;
             padding: 30px 0 20px;
-            max-width: 40vw;
+            width: 100%;
 
             &--wrapper {
                 display: flex;
                 flex-direction: column;
-                gap: 1vw;
+                gap: 0.3rem;
+                width: 100%;
+                min-width: 0;
 
                 label {
                     text-align: left;
@@ -65,25 +72,24 @@
                 }
             }
 
-            &--wrapper:first-child {
+            &--name-wrapper {
                 display: flex;
                 flex-direction: row;
-
-                input {
-                    width: 16vw;
-                }
+                justify-content: space-between;
+                width: auto;
+                gap: 1rem;
+                box-sizing: border-box;
 
                 @include mobile {
                     flex-direction: column;
+                    gap: 2rem;
                 }
 
-                div {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 5px;
-                    }
-                }
+
             }
+
+
+        }
 
         &__btn {
             display: flex;
@@ -106,6 +112,7 @@
 
             &:hover {
                 transform: scale(110%);
+
                 &::after {
                     opacity: 1;
                 }
@@ -130,7 +137,7 @@
             align-self: center;
             margin: 0 0 20px 0;
         }
-        
+
         .clicked {
             animation: clicked 0.5s forwards;
         }

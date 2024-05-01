@@ -7,7 +7,7 @@ const path = require('path');
 const request = require('request');
 
 const Actualite = require('./models/actualite.model');
-const { error } = require('console');
+const Cheese = require('./models/cheese.model');
 
 // Connect to MongoDB
 connectDB();
@@ -83,6 +83,28 @@ app.post('/api/actualites', (req, res, next) => {
 	actualite
 		.save()
 		.then(() => res.status(201).json({ message: 'Actualité enregistré !' }))
+		.catch((error) => res.status(400).json({ error }));
+});
+
+// @desc    Get all cheeses
+// @route   GET /api/cheeses
+// @access  Public
+app.get('/api/cheeses', (req, res) => {
+	Cheese.find()
+		.then((cheeses) => res.status(200).json(cheeses))
+		.catch((error) => res.status(400).json({ error }));
+});
+
+// @desc    Add a cheese
+// @route   POST /api/cheeses
+// @access  Private
+app.post('/api/cheeses', (req, res, next) => {
+	const cheese = new Cheese({
+		...req.body,
+	});
+	cheese
+		.save()
+		.then(() => res.status(201).json({ message: 'Fromage enregistré !' }))
 		.catch((error) => res.status(400).json({ error }));
 });
 

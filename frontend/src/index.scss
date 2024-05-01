@@ -7,7 +7,8 @@ body .App {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-weight: 400;
   background: $background;
-  color: $text;
+  // color: $text;
+  color: $gray;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   max-width: 100vw;
@@ -21,9 +22,17 @@ body .App {
   h5 {
     font-family: $title-font;
     font-weight: 700;
+    // color: $text;
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $text;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -31,6 +40,7 @@ code {
 
 input, label, select, textarea, button {
   font-family: $text-font;
+  color: $text;
 }
 
 // Background Wave

@@ -4,8 +4,9 @@
 .textandimage {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    height: 100vh;
     gap: 8vw;
-    padding: 20px 0;
 
     &--reverse {
         flex-direction: row-reverse;
@@ -19,7 +20,6 @@
         display: flex;
         align-items: center;
         width: 85vw;
-        margin: auto;
 
         @include tablet {
             flex-direction: column;
@@ -29,7 +29,7 @@
     &__content {
         display: flex;
         flex-direction: column;
-        gap: 35px;
+        gap: 55px;
     }
 
     &__title {
@@ -49,11 +49,9 @@
     }
 
     &__illustration {
-        width: 400px;
-        height: 400px;
+        width: 35vw;
+        height: 80vh;
         object-fit: cover;
-        border-radius: 5px;
-        box-shadow: $box-shadow;
 
         @include tablet {
             display: none;

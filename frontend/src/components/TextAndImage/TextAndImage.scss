@@ -5,29 +5,37 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    height: 100vh;
-    gap: 8vw;
+    padding: 14vh 0 10vh 0;
 
     @include tablet {
         justify-content: center;
         gap: 0;
+        min-height: 75vh;
     }
 
     &--reverse {
-        flex-direction: row-reverse;
-
         .textandimage__text {
             align-self: flex-end;
         }
     }
 
+
     &__container {
         display: flex;
         align-items: center;
         width: 85vw;
+        gap: 8vw;
 
         @include tablet {
             flex-direction: column;
+        }
+
+        &--reverse {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 8vw;
+            width: 85vw;
         }
     }
 
@@ -55,7 +63,7 @@
 
     &__illustration {
         width: 35vw;
-        height: 80vh;
+        height: 70vh;
         object-fit: cover;
 
         @include tablet {

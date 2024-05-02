@@ -1,5 +1,6 @@
 import TextAndImage from '../../components/TextAndImage/TextAndImage';
 import Slideshow from '../../components/Slideshow/Slideshow';
+import Landing from '../../components/Landing/Landing';
 import centreEquestreSlideshow from '../../datas/slideshow.json';
 
 export default function CentreEquestre() {
@@ -9,7 +10,19 @@ export default function CentreEquestre() {
 
 	return (
 		<div className="home">
-			<Slideshow array={slideshow} />
+
+			<Landing
+				title="Ferme de la corne Dorée"
+				src="./img/taylor-brandon-3HmP1kOdACU-unsplash.jpg"
+				texts={[
+					'Élevage de Chèvres Alpines',
+					'Équitation Western',
+					'Vente de Fromages',
+				]}
+				alt="Cavalière à la Ferme de la corne dorée, avec un coucher de soleil sur les montagnes du Pilat"
+				width="1920"
+				height="1080"
+			/>
 
 			<TextAndImage
 				sectionClass="textandimage"
@@ -20,6 +33,9 @@ export default function CentreEquestre() {
 				src="./img/illustration_ferme_de_la_corne_doree.jpg"
 				alt="photo de chèvre couché de soleil à la ferme de la corne dorée"
 			/>
+
+			<Slideshow array={slideshow} />
+
 
 			<TextAndImage
 				sectionClass="textandimage"

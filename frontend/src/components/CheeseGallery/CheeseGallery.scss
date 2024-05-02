@@ -2,13 +2,15 @@
 @import "../../Utils/mixins.scss";
 
 .CheeseGallery {
-    padding: 40px 0;
+    display: flex;
+    padding: 10vh 0;
 
     &__container {
         display: flex;
         flex-direction: column;
         margin: auto;
         width: 85vw;
+        gap: 55px;
     }
 
     &__title {
@@ -20,11 +22,14 @@
     &__Cards {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 2.5vw;
-        margin-top: 40px;
+        gap: 20px;
 
         @include tablet {
             grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mobile {
+            grid-template-columns: repeat(1, 1fr);
         }
     }
 }

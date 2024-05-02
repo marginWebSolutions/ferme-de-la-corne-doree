@@ -6,8 +6,8 @@
     flex-direction: column;
     position: relative;
     overflow: hidden;
-    box-shadow: $light-box-shadow;
-    border-radius: 2%;
+    box-shadow: $bottom-box-shadow;
+    border-radius: 4px;
     cursor: pointer;
 
     img {

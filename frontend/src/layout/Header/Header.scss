@@ -80,6 +80,7 @@ nav {
         .logo__img {
             transform: translateY(-25%);
             border: 0.8rem solid rgba($background, 1);
+            box-shadow: $bottom-light-box-shadow;
             overflow: hidden;
             @include tablet {
                 transform: translateY(-100%);

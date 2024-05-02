@@ -7,32 +7,23 @@ body .App {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-weight: 400;
   background: $background;
-  // color: $text;
-  color: $gray;
+  color: $grey;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   max-width: 100vw;
   margin: auto;
   box-sizing: border-box;
 
-  h1,
   h2,
   h3,
   h4,
   h5 {
     font-family: $title-font;
     font-weight: 700;
-    // color: $text;
+    color: $text;
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
-  color: $text;
-}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -44,13 +35,13 @@ input, label, select, textarea, button {
 }
 
 // Background Wave
-.waveBg {
-  background: url(../public/img/Wave.svg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: visible;
-}
+// .waveBg {
+//   background: url(../public/img/Wave.svg);
+//   background-position: center center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   overflow: visible;
+// }
 
 // Arrow to top
 .backToTop {

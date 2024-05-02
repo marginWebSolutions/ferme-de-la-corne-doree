@@ -2,7 +2,12 @@
 
 .landing {
     height: 88vh;
+    background-color: black;
 
+    @include tablet {
+        height: 100vh;
+    }
+    
     &__overlay {
         background: rgba($text, 0.3);
         width: 100%;

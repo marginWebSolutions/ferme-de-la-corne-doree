@@ -19,7 +19,7 @@ export default function Home() {
 					'Équitation Western',
 					'Vente de Fromages',
 				]}
-				alt="Cavalière et son cheval à la Ferme de la corne dorée, avec un coucher de soleil sur les montagnes du Pilat"
+				alt="Cavalière à la Ferme de la corne dorée, avec un coucher de soleil sur les montagnes du Pilat"
 				width="1920"
 				height="1080"
 			/>

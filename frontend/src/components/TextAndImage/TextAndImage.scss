@@ -8,6 +8,11 @@
     height: 100vh;
     gap: 8vw;
 
+    @include tablet {
+        justify-content: center;
+        gap: 0;
+    }
+
     &--reverse {
         flex-direction: row-reverse;
 

@@ -84,7 +84,8 @@ nav {
             overflow: hidden;
             @include tablet {
                 transform: translateY(-100%);
-                border: 0.8rem solid rgba($background, 0)
+                border: 0.8rem solid rgba($background, 0);
+                box-shadow: none;
             }
         }
     }

@@ -123,9 +123,13 @@ export default function Form() {
 					/>
 				</div>
 			</div>
+			<label htmlFor="g-recaptcha-response" className="visually-hidden">
+				Je ne suis pas un robot
+			</label>
 			<div
 				className="g-recaptcha"
 				data-sitekey="6Lcr9copAAAAAKd8i_zj9XWen6chTBp-mzdBsw9v"
+				id="g-recaptcha-response"
 			></div>
 			<div
 				className={`message ${errorMessage ? 'errorMessage' : ''} ${

@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Highlight from '../Highlight/Highlight';
 import './Location.scss';
 
@@ -9,7 +8,8 @@ export default function Location({
 	width,
 	height,
 	loadingValue,
-	href, 
+	href,
+	target
 }) {
 	return (
 		<div className="location" id="Coordonnees">
@@ -32,7 +32,11 @@ export default function Location({
 						</Highlight>
 					</div>
 					{infoTitle.map((title, index) => (
-						<a key={index} href={href[index]} target='_blank'>
+						<a
+							key={index}
+							href={href[index]}
+							target={target[index]}
+							rel={target[index] === '_blank' ? 'noopener noreferrer' : undefined}>
 							<span>{title}</span> {info[index]}
 						</a>
 					))}

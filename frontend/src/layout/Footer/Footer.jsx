@@ -1,13 +1,19 @@
 import Location from '../../components/Location/Location';
+import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import './Footer.scss';
 
 export default function Footer() {
+
+	const location = useLocation();
+	const validPaths = ['/', '/chevrerie', '/centre-equestre'];
+
 	return (
 		<footer className="footer">
 			<div>
+			{validPaths.includes(location.pathname) && 
 				<Location
 					infoTitle={[
 						<FontAwesomeIcon
@@ -53,7 +59,7 @@ export default function Footer() {
 					width="490"
 					height="450"
 					loadingValue="lazy"
-				/>
+				/>}
 			</div>
 			<div className="footer__content">
 				Site réalisé par{' '}

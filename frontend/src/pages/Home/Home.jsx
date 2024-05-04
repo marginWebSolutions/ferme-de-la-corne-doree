@@ -34,11 +34,11 @@ export default function Home() {
 				alt="photo de chèvre couché de soleil à la ferme de la corne dorée"
 			/>
 
-			<Slideshow array={slideshow} />
+				<Slideshow array={slideshow} />
 
 			<ImageLinks
 				sectionClass="imagelinks"
-				titles={['Chèvrerie', 'Centre-Equestre']}
+				titles={['Chèvrerie', 'Centre-équestre']}
 				links={['/chevrerie', '/centre-equestre']}
 				src={[
 					'./img/antonio-janeski-RyFWaB-N2RA-unsplash.jpg',

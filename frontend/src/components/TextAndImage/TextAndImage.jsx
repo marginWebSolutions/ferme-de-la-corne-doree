@@ -9,16 +9,16 @@ export default function TextAndImage({
 	alt,
 	reverse,
 }) {
-	const reverseSection = `${sectionClass} ${
-		reverse ? `${sectionClass}--reverse` : ''
+	const reverseSection = `${
+		reverse ? `${sectionClass}__container--reverse` : `${sectionClass}__container`
 	}`;
 	const alignEndTitle = `${sectionClass}__title ${
 		reverse ? `${sectionClass}__title--align-end` : ''
 	}`;
 
 	return (
-		<section className={`${reverseSection}`}>
-			<div className={`${reverseSection} ${sectionClass}__container`}>
+		<section className={`${sectionClass}${reverse ? '--reverse': ''}`}>
+			<div className={`${reverseSection}`}>
 				<div className={`${sectionClass}__content`}>
 					<div className={`${alignEndTitle} title-container`}>
 						<Highlight tag="h2">{title}</Highlight>

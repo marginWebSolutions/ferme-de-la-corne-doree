@@ -2,33 +2,46 @@
 @import "../../Utils/mixins.scss";
 
 .textandimage {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 100vh;
-    gap: 8vw;
+    // display: flex;
+    // align-items: center;
+    // justify-content: flex-end;
+    padding: 14vh 10vw 10vh;
 
     @include tablet {
         justify-content: center;
-        gap: 0;
+        padding: 10vh 10vw;
     }
 
     &--reverse {
-        flex-direction: row-reverse;
-
+        padding: 10vh 10vw;
         .textandimage__text {
             align-self: flex-end;
         }
     }
 
+
     &__container {
         display: flex;
         align-items: center;
-        width: 85vw;
+        // width: 85vw;
+        gap: 8vw;
 
         @include tablet {
             flex-direction: column;
+            gap: 0;
         }
+
+        &--reverse {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 8vw;
+
+            @include tablet {
+                display: block;
+            }
+        }
+        
     }
 
     &__content {
@@ -45,6 +58,11 @@
         &--align-end {
             align-self: end;
         }
+
+        @include mobile {
+            font-size: clamp(28px, 1.5rem, 36px);
+            align-self: center;
+        }  
     }
 
     &__text {
@@ -55,7 +73,7 @@
 
     &__illustration {
         width: 35vw;
-        height: 80vh;
+        height: 70vh;
         object-fit: cover;
 
         @include tablet {

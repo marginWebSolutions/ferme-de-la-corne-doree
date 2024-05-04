@@ -39,6 +39,7 @@ nav {
         right: 1.5rem;
         display: none;
         font-size: clamp(20px, 1.5rem, 28px);
+        color: rgba($text, 1);
         cursor: pointer;
 
         @include tablet {

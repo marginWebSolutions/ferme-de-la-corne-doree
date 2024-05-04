@@ -16,7 +16,7 @@ export default function CheeseGallery() {
 		<div className="CheeseGallery waveBg">
 			<div className="CheeseGallery__container">
 				<div className="CheeseGallery__title title-container">
-					<Highlight tag="h2">Nos Fromages de Chèvre</Highlight>
+					<Highlight tag="h2">Nos Fromages</Highlight>
 				</div>
 				<div className="CheeseGallery__Cards">
 					{cheeseData.map((item) => (

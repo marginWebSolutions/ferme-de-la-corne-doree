@@ -9,7 +9,7 @@ export default function ContactSection() {
 				<div className="title-container">
 					<Highlight
 						className="ContactSection__title"
-						small={true}
+						// small={true}
 						tag="h2"
 					>
 						Contact

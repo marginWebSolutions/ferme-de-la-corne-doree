@@ -2,13 +2,11 @@ import { useState, useEffect } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import './Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
 
 export default function Header() {
 	const [scrolled, setScrolled] = useState(false);
 	const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
-	const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
 
 	const handleScroll = () => {
 		const offset = window.scrollY;
@@ -23,16 +21,10 @@ export default function Header() {
 		setIsBurgerMenuOpen(!isBurgerMenuOpen);
 	};
 
-	const handleResize = () => {
-		setIsMobile(window.innerWidth <= 1024);
-	};
-
 	useEffect(() => {
 		window.addEventListener('scroll', handleScroll);
-		window.addEventListener('resize', handleResize);
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
-			window.removeEventListener('resize', handleResize);
 		};
 	}, []);
 
@@ -44,18 +36,8 @@ export default function Header() {
 
 	const rightNav = [
 		{ name: 'Actualités', path: '#News' },
-		{ name: 'Contact & Coordonnées', path: '#Contact' },
-		{
-			name: (
-				<FontAwesomeIcon
-					icon={faFacebook}
-					aria-hidden={false}
-					title="facebook"
-				/>
-			),
-			path: 'https://www.facebook.com/profile.php?id=100067318896608',
-			target: '_blank',
-		},
+		{ name: 'Contact', path: '#Contact' },
+		{ name: 'Coordonnées', path: '#Coordonnees' },
 	];
 
 	const combinedNav = [...leftNav, ...rightNav];

@@ -1,6 +1,8 @@
 import TextAndImage from "../../components/TextAndImage/TextAndImage";
 import Slideshow from "../../components/Slideshow/Slideshow";
 import CheeseGallery from "../../components/CheeseGallery/CheeseGallery";
+import Landing from "../../components/Landing/Landing";
+
 import chevrerieSlideshow from "../../datas/slideshow.json";
 
 export default function Chevrerie() {
@@ -12,8 +14,17 @@ export default function Chevrerie() {
     return (
         <div className="home">
 
-            <Slideshow
-                array={slideshow}
+            <Landing
+                title="Ferme de la corne Dorée"
+                src="./img/taylor-brandon-3HmP1kOdACU-unsplash.jpg"
+                texts={[
+                    'Élevage de Chèvres Alpines',
+                    'Équitation Western',
+                    'Vente de Fromages',
+                ]}
+                alt="Cavalière à la Ferme de la corne dorée, avec un coucher de soleil sur les montagnes du Pilat"
+                width="1920"
+                height="1080"
             />
 
             <TextAndImage
@@ -24,6 +35,10 @@ export default function Chevrerie() {
                 Quod, consequatur natus nemo veniam explicabo quae dolorum cum ab autem ea ad quidem fugit! Aliquam neque tempore voluptates similique accusamus corrupti, ut voluptatibus officia quod expedita. Consequatur, quia sint?"
                 src="./img/nataliya-melnychuk-BjGj8x5cdSk-unsplash.jpg"
                 alt="photo de chèvre couché de soleil à la ferme de la corne dorée"
+            />
+
+            <Slideshow
+                array={slideshow}
             />
 
             <CheeseGallery />

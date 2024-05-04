@@ -2,29 +2,39 @@
 @import "../../Utils/mixins.scss";
 
 .CheeseGallery {
-    padding: 40px 0;
+    display: flex;
+    padding: 10vh 0;
 
     &__container {
         display: flex;
         flex-direction: column;
         margin: auto;
-        width: 85vw;
+        width: 90vw;
+        gap: 55px;
     }
 
     &__title {
         align-self: flex-end;
         font-size: clamp(28px, 2rem, 36px);
         text-transform: uppercase;
+
+        @include mobile {
+            font-size: clamp(28px, 1.5rem, 36px);
+            align-self: center;
+        }
     }
 
     &__Cards {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 2.5vw;
-        margin-top: 40px;
+        gap: 20px;
 
         @include tablet {
             grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mobile {
+            grid-template-columns: repeat(1, 1fr);
         }
     }
 }

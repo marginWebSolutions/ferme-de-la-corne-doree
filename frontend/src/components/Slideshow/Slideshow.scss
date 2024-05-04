@@ -4,24 +4,20 @@
 
 .SlideCardList {
   position: relative;
-  width: 100vw;
+  margin: auto;
+  width: 90vw;
   max-width: 100%;
-  height: 50vh;
+  height: 65vh;
   overflow: hidden;
   background: rgba($accent, 0.3);
 
-  @include tablet {
-    height: 92vh;
-  }
-
   &__click {
-    height: 50vh;
+    height: 65vh;
     width: 15%;
     z-index: 1;
     transition: background-color 0.5s ease-in;
     
     @include tablet {
-      height: 92vh;
       width: 20%;
     }
 
@@ -50,12 +46,8 @@
 
     img {
       width: 100%;
-      height: 50vh;
+      height: 65vh;
       object-fit: cover;
-
-      @include tablet {
-        height: 92vh;
-      }
     }
 
     &--hide {

@@ -6,7 +6,7 @@ export default function ImageLinks({ sectionClass, titles, links, src, alt }) {
 		<section className={sectionClass}>
 			<div className={`${sectionClass}__container`}>
 				<div className={`${sectionClass}__title title-container`}>
-					<Highlight tag="h2">Découvrez nos Deux Activités</Highlight>
+					<Highlight tag="h2">Nos Deux Activités</Highlight>
 				</div>
 				<div className={`${sectionClass}__content`}>
 					{titles.map((title, index) => (

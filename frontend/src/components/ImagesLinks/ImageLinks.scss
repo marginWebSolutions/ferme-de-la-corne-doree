@@ -71,27 +71,21 @@
                 ~.imagelinks__image {
                     transform: scale(1.1);
                 }
-
-                // ~.imagelinks__link__title {
-                //     opacity: 1;
-
-                // }
             }
         }
 
         &__title {
             font-size: clamp(20px, 2rem, 28px);
             position: absolute;
-            // opacity: 0;
             bottom: auto;
             left: auto;
             padding: 20px;
             margin: 20px;
             z-index: 2;
             background-image: linear-gradient(to top, rgba($secondary, 0.5), rgba($accent, 0.5));
-            border: 1px solid $background;
+            border: 2px solid $background;
             border-radius: 10px;
-            box-shadow: $light-box-shadow;
+            box-shadow: $box-shadow;
             padding: 20px;
             transition: opacity 0.3s ease-in-out;
 

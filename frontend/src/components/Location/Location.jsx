@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Highlight from '../Highlight/Highlight';
 import './Location.scss';
 
@@ -9,11 +8,12 @@ export default function Location({
 	width,
 	height,
 	loadingValue,
-	href
+	href,
+	target
 }) {
 	return (
 		<div className="location" id="Coordonnees">
-			
+
 			<div className='location__wrapper'>
 				<div className="location__map">
 					<iframe
@@ -21,20 +21,24 @@ export default function Location({
 						width={width}
 						height={height}
 						loading={loadingValue}
-						title="Map de la ferme de la corne dorée"
+						title="Plan autour de la Ferme de la corne dorée"
 					></iframe>
 				</div>
 				<div className="location__content">
-				<div className="location__content__wrapper title-container">
-				<Highlight className="location__title"
-					tag="h2">
-					Coordonnées
-				</Highlight>
-			</div>
+					<div className="location__content__wrapper title-container">
+						<Highlight className="location__title"
+							tag="h2">
+							Coordonnées
+						</Highlight>
+					</div>
 					{infoTitle.map((title, index) => (
-						<Link key={index} to={href} target='_blank'>
+						<a
+							key={index}
+							href={href[index]}
+							target={target[index]}
+							rel={target[index] === '_blank' ? 'noopener noreferrer' : undefined}>
 							<span>{title}</span> {info[index]}
-						</Link>
+						</a>
 					))}
 				</div>
 			</div>

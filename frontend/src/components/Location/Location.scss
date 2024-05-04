@@ -3,7 +3,7 @@
 
 .location {
     width: 100%;
-    min-height: 70vh;
+    min-height: 50vh;
 
     &__title {
         font-size: clamp(28px, 2rem, 36px);
@@ -32,12 +32,13 @@
         text-align: center;
         gap: 15px;
         width: 100%;
-        font-size: clamp(14px, 1.2rem, 30px);
+        font-size: clamp(14px, 1.5rem, 30px);
         margin: 10vh 0;
 
         @include tablet {
             width: 90%;
             margin: 10vh auto;
+            font-size: clamp(14px, 1.2rem, 30px);
         }
 
         a {
@@ -62,14 +63,14 @@
 
     &__map {
         width: 100%;
-        height: 100%;
+        height: 50vh;
+        @include tablet {
+            height: 30vh;
+        }
 
         iframe {
             width: 100%;
             height: 100%;
-            @include mobile {
-                height: 30vh;
-            }
         }
     }
 }

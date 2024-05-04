@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Highlight from '../Highlight/Highlight';
 import './ImageLinks.scss';
 

@@ -69,7 +69,7 @@
 			&:hover {
 				opacity: 1;
 
-				~ .imagelinks__image {
+				~.imagelinks__image {
 					transform: scale(1.1);
 				}
 			}
@@ -83,29 +83,21 @@
 			padding: 20px;
 			margin: 20px;
 			z-index: 2;
-			background-image: linear-gradient(
-				to top,
-				rgba($secondary, 0.5),
-				rgba($accent, 0.5)
-			);
-			border: 2px solid rgba($background, 0.3);
-			border-radius: 10px;
-			box-shadow: $box-shadow;
+			pointer-events: none;
+			color: rgba($text, 0.7);
+			background: rgba($accent, 0);
+			border-radius: 50px;
+			box-shadow: $very-light-box-shadow;
 			padding: 20px;
 			transition: opacity 0.3s ease-in-out;
 
-			@include tablet {
-				opacity: 1;
-			}
-
 			@include mobile {
 				font-size: clamp(14px, 1.5rem, 20px);
-				background-image: linear-gradient(
-					to top,
-					rgba($secondary, 0.9),
-					rgba($accent, 0.9)
-				);
-				border-radius: 50px;
+				background-image: linear-gradient(to top,
+						rgba($secondary, 0.8),
+						rgba($accent, 0.8));
+				color: rgba($text, 0.9);
+				border: 4px solid rgba($background, 0.6);
 				padding: 15px;
 				bottom: 0;
 				left: 0;

@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const User = require('../models/user.model');
-const e = require('express');
 
 // @desc    Create a user
 // @route   POST /api/auth
@@ -40,7 +40,11 @@ exports.login = (req, res, next) => {
 						} else {
 							res.status(200).json({
 								userId: user._id,
-								token: 'TOKEN',
+								token: jwt.sign(
+									{ userId: user._id },
+									process.env.JWT_SECRET,
+									{ expiresIn: '24h' }
+								),
 							});
 						}
 					})

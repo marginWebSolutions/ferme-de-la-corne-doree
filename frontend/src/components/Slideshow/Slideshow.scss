@@ -11,6 +11,10 @@
   overflow: hidden;
   background: rgba($accent, 0.3);
 
+  @include tablet {
+    width: 100vw;
+  }
+
   &__click {
     height: 65vh;
     width: 15%;

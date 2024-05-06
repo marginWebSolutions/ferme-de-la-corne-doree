@@ -44,7 +44,7 @@
 
 	&__cards {
 		display: flex;
-		gap: 1.5rem;
+		gap: 35px;
 		justify-content: space-between;
 		align-items: stretch;
 		text-align: center;
@@ -59,7 +59,7 @@
 		flex-direction: column;
 		gap: 25px;
 		padding: 30px;
-		border-radius: 15px;
+		border-radius: 5px 25px;
 		background: $background;
 		box-shadow: $very-light-box-shadow;
 		flex: 1;
@@ -73,7 +73,7 @@
 			font-weight: 400;
 			color: rgba($text, 0.8);
 			background: rgba($accent, 0.3);
-			border-radius: 15px;
+			border-radius: 5px 25px;
 			padding: 15px;
 		}
 	}

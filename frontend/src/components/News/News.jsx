@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useEffect, useState } from 'react';
 import Article from '../Article/Article';
 import Highlight from '../Highlight/Highlight';
 import './News.scss';
@@ -18,6 +20,7 @@ export default function News() {
 			<div className={`${sectionClass}__container`}>
 				<div className={`${sectionClass}__title title-container`}>
 					<Highlight tag="h2">Nos Actualités</Highlight>
+					<FontAwesomeIcon icon={faPen} className="title-icon" />
 				</div>
 				<div className={`${sectionClass}__cards`}>
 					{newsData.map((item, index) => (

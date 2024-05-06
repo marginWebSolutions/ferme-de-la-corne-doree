@@ -29,6 +29,19 @@
 		}
 	}
 
+	.title-icon {
+		position: absolute;
+		top: 2px;
+		right: -20%;
+		height: 27px;
+		color: $text;
+		cursor: pointer;
+
+		@include mobile {
+			height: 22px;
+		}
+	}
+
 	&__cards {
 		display: flex;
 		gap: 1.5rem;

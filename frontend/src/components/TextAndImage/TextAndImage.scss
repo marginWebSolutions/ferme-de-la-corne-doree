@@ -1,87 +1,86 @@
-@import "../../Utils/variables.scss";
-@import "../../Utils/mixins.scss";
+@import '../../Utils/variables.scss';
+@import '../../Utils/mixins.scss';
 
 .textandimage {
-    // display: flex;
-    // align-items: center;
-    // justify-content: flex-end;
-    padding: 14vh 10vw 10vh;
+	// display: flex;
+	// align-items: center;
+	// justify-content: flex-end;
+	padding: 14vh 10vw 10vh;
 
-    @include tablet {
-        justify-content: center;
-        padding: 10vh 10vw;
-    }
+	@include tablet {
+		justify-content: center;
+		padding: 10vh 10vw;
+	}
 
-    &--reverse {
-        padding: 10vh 10vw;
-        .textandimage__text {
-            align-self: flex-end;
-        }
-    }
+	&--reverse {
+		padding: 10vh 10vw;
+		.textandimage__text {
+			align-self: flex-end;
+		}
+	}
 
+	&__container {
+		display: flex;
+		align-items: center;
+		// width: 85vw;
+		gap: 8vw;
 
-    &__container {
-        display: flex;
-        align-items: center;
-        // width: 85vw;
-        gap: 8vw;
+		@include tablet {
+			flex-direction: column;
+			gap: 0;
+		}
 
-        @include tablet {
-            flex-direction: column;
-            gap: 0;
-        }
+		&--reverse {
+			display: flex;
+			flex-direction: row-reverse;
+			align-items: center;
+			gap: 8vw;
 
-        &--reverse {
-            display: flex;
-            flex-direction: row-reverse;
-            align-items: center;
-            gap: 8vw;
+			@include tablet {
+				display: block;
+			}
+		}
+	}
 
-            @include tablet {
-                display: block;
-            }
-        }
-        
-    }
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 55px;
+	}
 
-    &__content {
-        display: flex;
-        flex-direction: column;
-        gap: 55px;
-    }
+	&__title {
+		font-size: clamp(28px, 2rem, 36px);
+		text-transform: uppercase;
+		align-self: start;
+		color: $text;
 
-    &__title {
-        font-size: clamp(28px, 2rem, 36px);
-        text-transform: uppercase;
-        align-self: start;
+		&--align-end {
+			align-self: end;
+		}
 
-        &--align-end {
-            align-self: end;
-        }
+		@include mobile {
+			font-size: clamp(28px, 1.5rem, 36px);
+			align-self: center;
+		}
+	}
 
-        @include mobile {
-            font-size: clamp(28px, 1.5rem, 36px);
-            align-self: center;
-        }  
-    }
+	&__text {
+		font-weight: 400;
+		text-align: justify;
+		font-size: clamp(20px, 1.5rem, 28px);
+	}
 
-    &__text {
-        font-weight: 400;
-        text-align: justify;
-        font-size: clamp(20px, 1.5rem, 28px);
-    }
+	&__illustration {
+		width: 35vw;
+		height: 70vh;
+		object-fit: cover;
 
-    &__illustration {
-        width: 35vw;
-        height: 70vh;
-        object-fit: cover;
+		@include tablet {
+			display: none;
+		}
 
-        @include tablet {
-            display: none;
-        }
-
-        @include mobile {
-            display: none;
-        }
-    }
+		@include mobile {
+			display: none;
+		}
+	}
 }

@@ -1,47 +1,51 @@
 @import url('https://fonts.googleapis.com/css?family=Krub:700|Manjari:400|Poppins:600');
-@import "./Utils/variables.scss";
-@import "./Utils/keyframes.scss";
+@import './Utils/variables.scss';
+@import './Utils/keyframes.scss';
 
-body .App {
-  font-family: $text-font, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-weight: 400;
-  background: $background;
-  color: $grey;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  max-width: 100vw;
-  margin: auto;
-  box-sizing: border-box;
+.App {
+	font-family: $text-font, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+		'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+		'Helvetica Neue', sans-serif;
+	font-weight: 400;
+	background: $background;
+	color: $grey;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	max-width: 100vw;
+	margin: auto;
+	box-sizing: border-box;
 
-  h2,
-  h3,
-  h4,
-  h5 {
-    font-family: $title-font;
-    font-weight: 700;
-    color: $text;
-  }
+	h2,
+	h3,
+	h4,
+	h5 {
+		font-family: $title-font;
+		font-weight: 700;
+	}
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
 }
 
-input, label, select, textarea, button {
-  font-family: $text-font;
-  color: $text;
+input,
+label,
+select,
+textarea,
+button {
+	font-family: $text-font;
+	color: $text;
 }
 
 // Visually hidden for screen readers
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
 }

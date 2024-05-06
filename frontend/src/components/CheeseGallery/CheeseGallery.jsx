@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../Card/Card';
 import Highlight from '../Highlight/Highlight';
 import './CheeseGallery.scss';
@@ -7,7 +7,7 @@ export default function CheeseGallery() {
 	const [cheeseData, setCheeseData] = useState([]);
 
 	useEffect(() => {
-		fetch('http://localhost:3001/api/cheeses')
+		fetch('http://localhost:3001/api/fromages')
 			.then((response) => response.json())
 			.then((data) => setCheeseData(data));
 	}, []);

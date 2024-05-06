@@ -85,7 +85,7 @@
 			z-index: 2;
 			pointer-events: none;
 			color: rgba($text, 0.7);
-			background: rgba($accent, 0);
+			background: rgba($background, 0.1);
 			border-radius: 50px;
 			box-shadow: $very-light-box-shadow;
 			padding: 20px;
@@ -93,11 +93,11 @@
 
 			@include mobile {
 				font-size: clamp(14px, 1.5rem, 20px);
-				background-image: linear-gradient(to top,
+				background: linear-gradient(to top,
 						rgba($secondary, 0.8),
 						rgba($accent, 0.8));
 				color: rgba($text, 0.9);
-				border: 4px solid rgba($background, 0.6);
+				border: 3px solid rgba($background, 0.6);
 				padding: 15px;
 				bottom: 0;
 				left: 0;

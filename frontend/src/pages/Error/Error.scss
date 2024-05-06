@@ -2,7 +2,7 @@
 @import "../../Utils/mixins.scss";
 
 .error {
-    height: 90vh;
+    height: 78vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,6 +12,7 @@
 
     @include tablet {
         gap: 40px;
+        height: 90vh;
     }
 
     @include mobile {

@@ -7,6 +7,7 @@ import Footer from './layout/Footer/Footer';
 import Home from './pages/Home/Home';
 import Chevrerie from './pages/Chevrerie/Chevrerie';
 import CentreEquestre from './pages/CentreEquestre/CentreEquestre';
+import Connection from './pages/Connection/Connection';
 import Error from './pages/Error/Error';
 import Meta from './helmet/Meta';
 import JSONLD from './helmet/JSONLD';
@@ -31,6 +32,7 @@ function App() {
 						path="/centre-equestre"
 						element={<CentreEquestre />}
 					/>
+					<Route path="/connexion-admin-julie" element={<Connection />}/>
 					<Route path="*" element={<Error />} />
 				</Routes>
 				{validPaths.includes(location.pathname) && <News />}

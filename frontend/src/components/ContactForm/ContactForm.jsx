@@ -11,7 +11,6 @@ export default function Form() {
 		email: '',
 		objet: '',
 		message: '',
-		captcha: '',
 	});
 	const [isSubmitted, setIsSubmitted] = useState(false);
 	const [errorMessage, setErrorMessage] = useState('');
@@ -132,9 +131,8 @@ export default function Form() {
 				id="g-recaptcha-response"
 			></div>
 			<div
-				className={`message ${errorMessage ? 'errorMessage' : ''} ${
-					isSubmitted ? 'confirmMessage' : ''
-				}`}
+				className={`message ${errorMessage ? 'errorMessage' : ''} ${isSubmitted ? 'confirmMessage' : ''
+					}`}
 			>
 				{errorMessage}
 				{isSubmitted && 'Merci pour votre message !'}

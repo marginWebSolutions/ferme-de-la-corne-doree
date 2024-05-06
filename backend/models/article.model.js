@@ -1,6 +1,6 @@
 const moongoose = require('mongoose');
 
-const actualiteSchema = moongoose.Schema(
+const articleSchema = moongoose.Schema(
 	{
 		title: {
 			type: String,
@@ -20,4 +20,4 @@ const actualiteSchema = moongoose.Schema(
 	}
 );
 
-module.exports = moongoose.model('Actualite', actualiteSchema);
+module.exports = moongoose.model('Article', articleSchema);

@@ -1,121 +1,130 @@
-@import "../../Utils/variables.scss";
-@import "../../Utils/mixins.scss";
+@import '../../Utils/variables.scss';
+@import '../../Utils/mixins.scss';
 
 .imagelinks {
-    width: 100%;
-    display: flex;
+	width: 100%;
+	display: flex;
 
-    &__container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100vw;
-        margin: auto;
-        padding: 10vh 0;
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100vw;
+		margin: auto;
+		padding: 10vh 0;
 
-        @include tablet {
-            width: 90vw;
-        }
-    }
+		@include tablet {
+			width: 90vw;
+		}
+	}
 
-    &__title {
-        align-self: flex-end;
-        font-size: clamp(28px, 2rem, 36px);
-        text-transform: uppercase;
-        margin-right: 5vw;
+	&__title {
+		align-self: flex-end;
+		font-size: clamp(28px, 2rem, 36px);
+		text-transform: uppercase;
+		margin-right: 5vw;
+		color: $text;
 
-        @include mobile {
-            font-size: clamp(28px, 1.5rem, 36px);
-            margin-right: 0;
-            align-self: center;
-        }
-    }
+		@include mobile {
+			font-size: clamp(28px, 1.5rem, 36px);
+			margin-right: 0;
+			align-self: center;
+		}
+	}
 
-    &__content {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 55px;
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 55px;
 
-        @include mobile {
-            flex-direction: column;
-            gap: 20px;
-        }
-    }
+		@include mobile {
+			flex-direction: column;
+			gap: 20px;
+		}
+	}
 
-    &__link {
-        position: relative;
-        display: flex;
-        height: 50vh;
-        width: auto;
-        border-radius: 2px;
-        overflow: hidden;
+	&__link {
+		position: relative;
+		display: flex;
+		height: 50vh;
+		width: auto;
+		border-radius: 2px;
+		overflow: hidden;
 
-        @include mobile {
-            height: 30vh;
-        }
+		@include mobile {
+			height: 30vh;
+		}
 
-        &--overlay {
-            background: rgba($background, 0.3);
-            opacity: 0;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            transition: opacity 0.3s ease-in-out;
+		&--overlay {
+			background: rgba($background, 0.3);
+			opacity: 0;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			transition: opacity 0.3s ease-in-out;
 
-            &:hover {
-                opacity: 1;
+			&:hover {
+				opacity: 1;
 
-                ~.imagelinks__image {
-                    transform: scale(1.1);
-                }
-            }
-        }
+				~ .imagelinks__image {
+					transform: scale(1.1);
+				}
+			}
+		}
 
-        &__title {
-            font-size: clamp(20px, 2rem, 28px);
-            position: absolute;
-            bottom: auto;
-            left: auto;
-            padding: 20px;
-            margin: 20px;
-            z-index: 2;
-            background-image: linear-gradient(to top, rgba($secondary, 0.5), rgba($accent, 0.5));
-            border: 2px solid rgba($background, 0.3);
-            border-radius: 10px;
-            box-shadow: $box-shadow;
-            padding: 20px;
-            transition: opacity 0.3s ease-in-out;
+		&__title {
+			font-size: clamp(20px, 2rem, 28px);
+			position: absolute;
+			bottom: auto;
+			left: auto;
+			padding: 20px;
+			margin: 20px;
+			z-index: 2;
+			background-image: linear-gradient(
+				to top,
+				rgba($secondary, 0.5),
+				rgba($accent, 0.5)
+			);
+			border: 2px solid rgba($background, 0.3);
+			border-radius: 10px;
+			box-shadow: $box-shadow;
+			padding: 20px;
+			transition: opacity 0.3s ease-in-out;
 
-            @include tablet {
-                opacity: 1;
-            }
+			@include tablet {
+				opacity: 1;
+			}
 
-            @include mobile {
-                font-size: clamp(14px, 1.5rem, 20px);
-                background-image: linear-gradient(to top, rgba($secondary, 0.9), rgba($accent, 0.9));
-                border-radius: 50px;
-                padding: 15px;
-                bottom: 0;
-                left: 0;
-            }
-        }
-    }
+			@include mobile {
+				font-size: clamp(14px, 1.5rem, 20px);
+				background-image: linear-gradient(
+					to top,
+					rgba($secondary, 0.9),
+					rgba($accent, 0.9)
+				);
+				border-radius: 50px;
+				padding: 15px;
+				bottom: 0;
+				left: 0;
+			}
+		}
+	}
 
-    &__image {
-        width: 49.5vw;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.2s ease-in-out;
+	&__image {
+		width: 49.5vw;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.2s ease-in-out;
 
-        @include tablet {
-            width: 44.5vw;
-        }
+		@include tablet {
+			width: 44.5vw;
+		}
 
-        @include mobile {
-            width: 100%;
-        }
-    }
+		@include mobile {
+			width: 100%;
+		}
+	}
 }

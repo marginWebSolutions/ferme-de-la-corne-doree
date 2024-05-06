@@ -1,40 +1,41 @@
-@import "../../Utils/variables.scss";
-@import "../../Utils/mixins.scss";
+@import '../../Utils/variables.scss';
+@import '../../Utils/mixins.scss';
 
 .CheeseGallery {
-    display: flex;
-    padding: 10vh 0;
+	display: flex;
+	padding: 10vh 0;
 
-    &__container {
-        display: flex;
-        flex-direction: column;
-        margin: auto;
-        width: 90vw;
-        gap: 55px;
-    }
+	&__container {
+		display: flex;
+		flex-direction: column;
+		margin: auto;
+		width: 90vw;
+		gap: 55px;
+	}
 
-    &__title {
-        align-self: flex-end;
-        font-size: clamp(28px, 2rem, 36px);
-        text-transform: uppercase;
+	&__title {
+		align-self: flex-end;
+		font-size: clamp(28px, 2rem, 36px);
+		text-transform: uppercase;
+		color: $text;
 
-        @include mobile {
-            font-size: clamp(28px, 1.5rem, 36px);
-            align-self: center;
-        }
-    }
+		@include mobile {
+			font-size: clamp(28px, 1.5rem, 36px);
+			align-self: center;
+		}
+	}
 
-    &__Cards {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
+	&__Cards {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 20px;
 
-        @include tablet {
-            grid-template-columns: repeat(2, 1fr);
-        }
+		@include tablet {
+			grid-template-columns: repeat(2, 1fr);
+		}
 
-        @include mobile {
-            grid-template-columns: repeat(1, 1fr);
-        }
-    }
+		@include mobile {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
 }

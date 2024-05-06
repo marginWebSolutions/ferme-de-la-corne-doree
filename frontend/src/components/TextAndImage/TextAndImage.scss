@@ -2,7 +2,7 @@
 @import '../../Utils/mixins.scss';
 
 .textandimage {
-	padding: 14vh 0 10vh 5vw;
+	padding: 14vh 5vw 10vh;
 
 	@include tablet {
 		justify-content: center;
@@ -10,7 +10,7 @@
 	}
 
 	&--reverse {
-		padding: 10vh 5vw 10vh 0;
+		padding: 10vh 5vw;
 		.textandimage__text {
 			align-self: flex-end;
 		}

@@ -5,6 +5,7 @@
 	display: flex;
 	width: 100%;
 	box-sizing: border-box;
+	padding: 10vh 5vw;
 
 	&__container {
 		display: flex;
@@ -12,7 +13,6 @@
 		justify-content: center;
 		width: auto;
 		margin: auto;
-		padding: 10vh 0 0;
 
 		@include tablet {
 			width: 90vw;
@@ -23,7 +23,6 @@
 		align-self: flex-end;
 		font-size: clamp(28px, 2rem, 36px);
 		text-transform: uppercase;
-		margin-right: 5vw;
 		color: $text;
 
 		@include mobile {
@@ -37,6 +36,7 @@
 		display: flex;
 		justify-content: space-between;
 		margin-top: 55px;
+		gap: 5vw;
 
 		@include mobile {
 			flex-direction: column;

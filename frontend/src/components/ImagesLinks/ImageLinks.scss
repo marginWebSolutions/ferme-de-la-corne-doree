@@ -83,7 +83,7 @@
             margin: 20px;
             z-index: 2;
             background-image: linear-gradient(to top, rgba($secondary, 0.5), rgba($accent, 0.5));
-            border: 2px solid $background;
+            border: 2px solid rgba($background, 0.3);
             border-radius: 10px;
             box-shadow: $box-shadow;
             padding: 20px;

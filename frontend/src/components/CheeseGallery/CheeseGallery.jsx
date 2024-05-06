@@ -1,3 +1,5 @@
+import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import Card from '../Card/Card';
 import Highlight from '../Highlight/Highlight';
@@ -17,6 +19,7 @@ export default function CheeseGallery() {
 			<div className="CheeseGallery__container">
 				<div className="CheeseGallery__title title-container">
 					<Highlight tag="h2">Nos Fromages</Highlight>
+					<FontAwesomeIcon icon={faPen} className="title-icon" />
 				</div>
 				<div className="CheeseGallery__Cards">
 					{cheeseData.map((item) => (

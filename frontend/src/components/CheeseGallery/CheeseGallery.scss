@@ -25,6 +25,19 @@
 		}
 	}
 
+	.title-icon {
+		position: absolute;
+		top: 2px;
+		left: -20%;
+		height: 27px;
+		color: $text;
+		cursor: pointer;
+
+		@include mobile {
+			height: 22px;
+		}
+	}
+
 	&__Cards {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);

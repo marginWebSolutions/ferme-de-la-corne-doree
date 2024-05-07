@@ -16,7 +16,7 @@ const articleSchema = moongoose.Schema(
 		},
 	},
 	{
-		timestamp: true,
+		timestamps: true,
 	}
 );
 

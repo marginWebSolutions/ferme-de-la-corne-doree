@@ -35,6 +35,7 @@ export default function Connection() {
 			.then((data) => {
 				setIsSubmitted(true);
 				setIsConnected(true);
+				localStorage.setItem('token', data.token);
 				setTimeout(() => {
 					setIsSubmitted(false);
 					setFormData({

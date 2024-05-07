@@ -20,7 +20,7 @@ const cheeseSchema = mongoose.Schema(
 		},
 	},
 	{
-		timestamp: true,
+		timestamps: true,
 	}
 );
 

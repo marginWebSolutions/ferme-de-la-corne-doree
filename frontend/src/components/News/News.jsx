@@ -8,6 +8,7 @@ import './News.scss';
 
 export default function News() {
 	const sectionClass = 'news';
+	const token = localStorage.getItem('token');
 	const [newsData, setNewsData] = useState([]);
 	const [selectedArticle, setSelectedArticle] = useState(null);
 
@@ -24,6 +25,7 @@ export default function News() {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`,
 			},
 			body: JSON.stringify(updatedArticle),
 		});
@@ -50,7 +52,6 @@ export default function News() {
 			<div className={`${sectionClass}__container`}>
 				<div className={`${sectionClass}__title title-container`}>
 					<Highlight tag="h2">Nos Actualités</Highlight>
-					{/* <FontAwesomeIcon icon={faPen} className="title-icon" /> */}
 				</div>
 				<div className={`${sectionClass}__cards`}>
 					{newsData.map((news, index) => (

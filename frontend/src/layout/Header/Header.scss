@@ -113,11 +113,10 @@ nav {
 			left: 57vw;
 
 			&.disable > li > a {
-				color: rgba($text, $alpha: 0.3);
+				color: rgba($text, 0.3);
 
 				&:hover {
-					color: rgba($text, $alpha: 0.3);
-					opacity: 1;
+					color: rgba($text, 0.3);
 					cursor: no-drop;
 				}
 			}
@@ -140,7 +139,7 @@ nav {
 				}
 
 				.current {
-					border-bottom: 2px solid $primary;
+					border-bottom: 3px solid rgba($primary, 0.8);
 				}
 			}
 
@@ -172,8 +171,7 @@ nav {
 				text-transform: uppercase;
 
 				&:hover {
-					color: $primary;
-					opacity: 0.7;
+					color: rgba($text, 0.6);
 				}
 			}
 
@@ -183,7 +181,7 @@ nav {
 		}
 
 		.current {
-			border-bottom: 2px solid $primary;
+			border-bottom: 3px solid rgba($primary, 0.8);
 		}
 	}
 }

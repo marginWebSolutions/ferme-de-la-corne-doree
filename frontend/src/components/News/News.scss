@@ -28,19 +28,6 @@
 		}
 	}
 
-	.title-icon {
-		position: absolute;
-		top: 2px;
-		right: -20%;
-		height: 27px;
-		color: $text;
-		cursor: pointer;
-
-		@include mobile {
-			height: 22px;
-		}
-	}
-
 	&__cards {
 		display: flex;
 		gap: 35px;
@@ -62,9 +49,19 @@
 		background: $background;
 		box-shadow: $very-light-box-shadow;
 		flex: 1;
+		position: relative;
 
 		@include tablet {
 			flex: none;
+		}
+
+		.title-icon {
+			position: absolute;
+			top: 15px;
+			right: 20px;
+			height: 20px;
+			color: $text;
+			cursor: pointer;
 		}
 
 		&--text {

@@ -1,13 +1,43 @@
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Article from '../Article/Article';
 import Highlight from '../Highlight/Highlight';
+import Modal from '../Modal/Modal';
 import './News.scss';
 
 export default function News() {
 	const sectionClass = 'news';
 	const [newsData, setNewsData] = useState([]);
+	const [selectedArticle, setSelectedArticle] = useState(null);
+
+	const openModal = (article) => {
+		setSelectedArticle(article);
+	};
+
+	const closeModal = () => {
+		setSelectedArticle(null);
+	};
+
+	const handleUpdate = async (updatedArticle) => {
+		const response = await fetch(`/api/actualites/${updatedArticle._id}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(updatedArticle),
+		});
+
+		if (!response.ok) {
+			throw new Error('Failed to update article');
+		}
+
+		setNewsData(
+			newsData.map((article) =>
+				article._id === updatedArticle._id ? updatedArticle : article
+			)
+		);
+	};
 
 	useEffect(() => {
 		fetch('http://localhost:3001/api/actualites')
@@ -20,20 +50,36 @@ export default function News() {
 			<div className={`${sectionClass}__container`}>
 				<div className={`${sectionClass}__title title-container`}>
 					<Highlight tag="h2">Nos Actualités</Highlight>
-					<FontAwesomeIcon icon={faPen} className="title-icon" />
+					{/* <FontAwesomeIcon icon={faPen} className="title-icon" /> */}
 				</div>
 				<div className={`${sectionClass}__cards`}>
-					{newsData.map((item, index) => (
-						<Article
-							key={item._id}
-							sectionClass={sectionClass}
-							title={item.title}
-							date={item.date}
-							text={item.content}
-							index={index}
-						/>
+					{newsData.map((news, index) => (
+						<React.Fragment key={news._id}>
+							<Article
+								key={news._id}
+								sectionClass={sectionClass}
+								title={news.title}
+								date={news.date}
+								text={news.content}
+								index={index}
+								modifyIcon={
+									<FontAwesomeIcon
+										icon={faPen}
+										className="title-icon"
+										onClick={() => openModal(news)}
+									/>
+								}
+							/>
+						</React.Fragment>
 					))}
 				</div>
+				{selectedArticle && (
+					<Modal
+						selectedArticle={selectedArticle}
+						closeModal={closeModal}
+						handleUpdate={handleUpdate}
+					/>
+				)}
 			</div>
 		</section>
 	);

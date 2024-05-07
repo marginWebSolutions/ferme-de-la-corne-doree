@@ -38,6 +38,15 @@
 		}
 	}
 
+	.add-icon {
+		position: absolute;
+		top: -30px;
+		left: -30px;
+		height: 35px;
+		color: $text;
+		cursor: pointer;
+	}
+
 	&__Cards {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);

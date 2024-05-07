@@ -26,7 +26,6 @@ export default function Modal({
 	};
 
 	if (!selectedItem) return null;
-	console.log(selectedItem);
 
 	return (
 		<>
@@ -54,10 +53,6 @@ export default function Modal({
 									type="text"
 									name="title"
 									id="title"
-									value={
-										selectedItem.caption ||
-										selectedItem.title
-									}
 									placeholder="Nouveau titre"
 									onChange={handleChange}
 								/>
@@ -75,6 +70,18 @@ export default function Modal({
 									/>
 								</div>
 							)}
+							{selectedItem.src && (
+								<div className="modal__content__formContainer--inputControl">
+									<label htmlFor="image">Image</label>
+									<input
+										type="file"
+										name="image"
+										id="image"
+										accept="image/png, image/jpeg"
+										onChange={handleChange}
+									/>
+								</div>
+							)}
 							<div className="modal__content__formContainer--inputControl">
 								<label htmlFor="content">Contenu</label>
 								<textarea
@@ -89,6 +96,7 @@ export default function Modal({
 								></textarea>
 							</div>
 							<button type="submit">Modifier</button>
+							<button type="submit">Supprimer</button>
 						</form>
 					</div>
 				</div>

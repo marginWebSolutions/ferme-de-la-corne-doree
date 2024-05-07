@@ -23,7 +23,7 @@ exports.signup = (req, res, next) => {
 
 // @desc    Login a user
 // @route   POST /api/auth
-// @access  Private
+// @access  Public
 exports.login = (req, res, next) => {
 	User.findOne({ email: req.body.email })
 		.then((user) => {

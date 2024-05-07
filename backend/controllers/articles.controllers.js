@@ -21,15 +21,15 @@ exports.getOneArticle = (req, res, next) => {
 // @desc    Create an article
 // @route   POST /api/actualites
 // @access  Private
-exports.createArticle = (req, res, next) => {
-	const article = new Article({
-		...req.body,
-	});
-	article
-		.save()
-		.then(() => res.status(201).json({ message: 'Actualité enregistré !' }))
-		.catch((error) => res.status(400).json({ error }));
-};
+// exports.createArticle = (req, res, next) => {
+// 	const article = new Article({
+// 		...req.body,
+// 	});
+// 	article
+// 		.save()
+// 		.then(() => res.status(201).json({ message: 'Actualité enregistré !' }))
+// 		.catch((error) => res.status(400).json({ error }));
+// };
 
 // @desc    Modify an article
 // @route   PUT /api/actualites/:id
@@ -46,8 +46,8 @@ exports.modifyArticle = (req, res, next) => {
 // @desc    Delete an article
 // @route   DELETE /api/actualites/:id
 // @access  Private
-exports.deleteArticle = (req, res, next) => {
-	Article.deleteOne({ _id: req.params.id })
-		.then(() => res.status(200).json({ message: 'Actualité supprimée !' }))
-		.catch((error) => res.status(400).json({ error }));
-};
+// exports.deleteArticle = (req, res, next) => {
+// 	Article.deleteOne({ _id: req.params.id })
+// 		.then(() => res.status(200).json({ message: 'Actualité supprimée !' }))
+// 		.catch((error) => res.status(400).json({ error }));
+// };

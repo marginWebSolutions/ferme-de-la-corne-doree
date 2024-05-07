@@ -9,7 +9,7 @@
         width: 40vw;
 
         @include tablet {
-            width: 80vw;
+            width: 85vw;
         }
 
         &__inputs {
@@ -100,7 +100,7 @@
             cursor: pointer;
             position: relative;
             z-index: 1;
-            transition: all 0.3s ease-in;
+            transition: all 0.3s ease-in-out;
 
             &:hover {
                 transform: scale(110%);
@@ -118,7 +118,6 @@
                 bottom: 0;
                 left: 0;
                 border-radius: 25px;
-                box-shadow: $light-box-shadow;
                 opacity: 0;
                 z-index: -1;
                 transition: opacity 0.3s ease-in;

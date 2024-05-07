@@ -3,20 +3,19 @@
 
 .imagelinks {
 	display: flex;
-	width: 100%;
+	width: 90vw;
 	box-sizing: border-box;
-	padding: 10vh 5vw;
+	padding: 10vh 0;
+	margin: auto;
+
+	@include tablet {
+		width: 85vw;
+	}
 
 	&__container {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		width: auto;
-		margin: auto;
-
-		@include tablet {
-			width: 90vw;
-		}
 	}
 
 	&__title {

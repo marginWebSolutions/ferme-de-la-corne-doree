@@ -5,12 +5,14 @@ export default function Article({
 	title,
 	modifyIcon,
 }) {
+	const token = localStorage.getItem('token');
+
 	return (
 		<div className={`${sectionClass}__card`}>
 			<div className={`${sectionClass}__content`}>
 				<h3 className={`${sectionClass}__content--title`}>{title}</h3>
 				<p className={`${sectionClass}__content--date`}>{date}</p>
-				{modifyIcon}
+				{token && modifyIcon}
 			</div>
 			<p className={`${sectionClass}__card--text`}>{text}</p>
 		</div>

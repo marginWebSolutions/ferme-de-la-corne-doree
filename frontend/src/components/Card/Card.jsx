@@ -10,6 +10,8 @@ export default function Card({
 	loading,
 	modifyIcon,
 }) {
+	const token = localStorage.getItem('token');
+
 	return (
 		<figure className="card">
 			<img
@@ -23,7 +25,7 @@ export default function Card({
 				<figcaption>{caption}</figcaption>
 				{description}
 			</div>
-			<div className="card__icon">{modifyIcon}</div>
+			{token && <div className="card__icon">{modifyIcon}</div>}
 		</figure>
 	);
 }

@@ -1,17 +1,16 @@
-import { useState, useEffect, useCallback } from 'react';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useCallback, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import './Header.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
 
 export default function Header() {
 	const [scrolled, setScrolled] = useState(false);
 	const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
 	const [isValidLocation, setIsValidLocation] = useState(true);
 	const location = useLocation();
-
-	
+	const token = localStorage.getItem('token');
 
 	const handleScroll = () => {
 		const offset = window.scrollY;
@@ -23,17 +22,18 @@ export default function Header() {
 	};
 
 	const handleValidLocation = useCallback(() => {
-
 		const validPaths = ['/', '/chevrerie', '/centre-equestre'];
 
-	
-			setIsValidLocation(validPaths.includes(location.pathname))
-		
-	},[location.pathname]);
-
+		setIsValidLocation(validPaths.includes(location.pathname));
+	}, [location.pathname]);
 
 	const handleBurgerMenu = () => {
 		setIsBurgerMenuOpen(!isBurgerMenuOpen);
+	};
+
+	const handleSignOut = () => {
+		localStorage.removeItem('token');
+		window.location.href = '/';
 	};
 
 	useEffect(() => {
@@ -43,7 +43,6 @@ export default function Header() {
 			window.removeEventListener('scroll', handleScroll);
 		};
 	}, [handleValidLocation]);
-
 
 	const leftNav = [
 		{ name: 'Accueil', path: '/' },
@@ -83,14 +82,19 @@ export default function Header() {
 						alt="Logo de la Ferme de la Corne Dorée"
 					/>
 				</div>
-				<ul className={`nav__list nav__list--right ${isValidLocation ? '' : 'disable' }`}>
+				<ul
+					className={`nav__list nav__list--right ${
+						isValidLocation ? '' : 'disable'
+					}`}
+				>
 					{rightNav.map((item, index) => (
-						<NavBar
-							key={index}
-							name={item.name}
-							path={item.path}
-						/>
+						<NavBar key={index} name={item.name} path={item.path} />
 					))}
+					{token && (
+						<button onClick={handleSignOut} className="logout__btn">
+							Deconnexion
+						</button>
+					)}
 				</ul>
 				<div
 					className={`nav__list__burger--container ${
@@ -98,15 +102,17 @@ export default function Header() {
 					}`}
 				>
 					<ul className="nav__list__burger">
-						{(isValidLocation ? combinedNav : leftNav).map((item, index) => (
-							<NavBar
-								key={index}
-								name={item.name}
-								path={item.path}
-								target={item.target}
-								onClick={handleBurgerMenu}
-							/>
-						))}
+						{(isValidLocation ? combinedNav : leftNav).map(
+							(item, index) => (
+								<NavBar
+									key={index}
+									name={item.name}
+									path={item.path}
+									target={item.target}
+									onClick={handleBurgerMenu}
+								/>
+							)
+						)}
 					</ul>
 				</div>
 			</nav>

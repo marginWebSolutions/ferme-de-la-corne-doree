@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import './Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,6 +8,10 @@ import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
 export default function Header() {
 	const [scrolled, setScrolled] = useState(false);
 	const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
+	const [isValidLocation, setIsValidLocation] = useState(true);
+	const location = useLocation();
+
+	
 
 	const handleScroll = () => {
 		const offset = window.scrollY;
@@ -17,16 +22,28 @@ export default function Header() {
 		}
 	};
 
+	const handleValidLocation = useCallback(() => {
+
+		const validPaths = ['/', '/chevrerie', '/centre-equestre'];
+
+	
+			setIsValidLocation(validPaths.includes(location.pathname))
+		
+	},[location.pathname]);
+
+
 	const handleBurgerMenu = () => {
 		setIsBurgerMenuOpen(!isBurgerMenuOpen);
 	};
 
 	useEffect(() => {
+		handleValidLocation();
 		window.addEventListener('scroll', handleScroll);
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
 		};
-	}, []);
+	}, [handleValidLocation]);
+
 
 	const leftNav = [
 		{ name: 'Accueil', path: '/' },
@@ -66,13 +83,12 @@ export default function Header() {
 						alt="Logo de la Ferme de la Corne Dorée"
 					/>
 				</div>
-				<ul className="nav__list nav__list--right">
+				<ul className={`nav__list nav__list--right ${isValidLocation ? '' : 'disable' }`}>
 					{rightNav.map((item, index) => (
 						<NavBar
 							key={index}
 							name={item.name}
 							path={item.path}
-							target={item.target}
 						/>
 					))}
 				</ul>
@@ -82,7 +98,7 @@ export default function Header() {
 					}`}
 				>
 					<ul className="nav__list__burger">
-						{combinedNav.map((item, index) => (
+						{(isValidLocation ? combinedNav : leftNav).map((item, index) => (
 							<NavBar
 								key={index}
 								name={item.name}

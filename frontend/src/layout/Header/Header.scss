@@ -111,6 +111,16 @@ nav {
         &--right {
             position: absolute;
             left: 57vw;
+
+            &.disable > li > a {
+                color: rgba($text, $alpha: 0.3);
+
+                &:hover {
+                    color: rgba($text, $alpha: 0.3);
+                    opacity: 1;
+                    cursor: no-drop;
+                }
+            }
         }
 
         &__burger {

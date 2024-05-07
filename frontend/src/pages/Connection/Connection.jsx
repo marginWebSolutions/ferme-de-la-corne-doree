@@ -78,7 +78,7 @@ export default function Connection() {
 							name="password"
 							value={formData.password}
 							handleChange={handleChange}
-							placeholder="Veuillez saisir un mot de passe"
+							placeholder="Veuillez saisir votre mot de passe"
 							required
 						/>
 					</div>

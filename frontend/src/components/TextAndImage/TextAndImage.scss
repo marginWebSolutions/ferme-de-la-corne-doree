@@ -2,11 +2,14 @@
 @import '../../Utils/mixins.scss';
 
 .textandimage {
-	padding: 14vh 5vw 10vh;
+	padding: 14vh 0 10vh;
+	width: 90vw;
+	margin: auto;
 
 	@include tablet {
 		justify-content: center;
-		padding: 10vh 10vw;
+		padding: 10vh 0;
+		width: 85vw;
 	}
 
 	&--reverse {

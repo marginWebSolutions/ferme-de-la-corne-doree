@@ -11,9 +11,8 @@
 		width: 90vw;
 		margin: auto;
 
-		@include mobile {
-			display: flex;
-			flex-direction: column;
+		@include tablet {
+			width: 85vw;
 		}
 	}
 

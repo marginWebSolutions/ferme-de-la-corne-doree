@@ -10,6 +10,7 @@
 
 	@include tablet {
 		width: 85vw;
+		flex-direction: column;
 	}
 
 	&__container {

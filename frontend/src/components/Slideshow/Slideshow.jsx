@@ -23,8 +23,8 @@ export default function Slideshow({ array }) {
 		radioIdx < index
 			? setAnimationType('slideInFromLeft')
 			: radioIdx > index
-			? setAnimationType('slideInFromRight')
-			: null;
+				? setAnimationType('slideInFromRight')
+				: null;
 
 	useEffect(() => {
 		const time = setTimeout(() => {
@@ -48,9 +48,8 @@ export default function Slideshow({ array }) {
 			{array.map((item, idx) => (
 				<div
 					key={idx}
-					className={`SlideCard SlideCard${
-						index === idx ? '' : '--hide'
-					} SlideCard--${animationType}`}
+					className={`SlideCard SlideCard${index === idx ? '' : '--hide'
+						} SlideCard--${animationType}`}
 					onAnimationEnd={handleAnimationEnd}
 				>
 					<img
@@ -59,6 +58,9 @@ export default function Slideshow({ array }) {
 						width={1920}
 						height={951}
 					/>
+					<div className="SlideCard__descriptionContainer">
+						<p className="SlideCard__description">{item.description}</p>
+					</div>
 				</div>
 			))}
 			<div className="SlideCard__paginationContainer">

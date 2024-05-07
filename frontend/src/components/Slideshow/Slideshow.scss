@@ -74,7 +74,7 @@
       .radio-button {
         width: 14px;
         height: 14px;
-        background: rgba($background, 0.9);
+        background: rgba($background, 0.8);
         cursor: pointer;
         border-radius: 50%;
         transition: all 0.5s ease-in-out;
@@ -88,10 +88,35 @@
     &__paginationContainer {
       position: absolute;
       left: 0;
-      bottom: 2.5rem;
+      bottom: 1rem;
       display: flex;
       justify-content: center;
       width: 100%;
+
+      @include tablet {
+        display: none;
+      }
     }
+
+    &__descriptionContainer {
+      position: absolute;
+      left: 0;
+      bottom: 5px;
+      padding: 10px 20px;
+      border-radius: 0 15px 0 0;
+      background: rgba($text, 0.5);
+
+      @include tablet {
+        border-radius: 0;
+      }
+    }
+
+    &__description {
+      font-family: 'Noto Serif SC', 'Times New Roman', serif;
+      color: rgba($primary, 1);
+      font-style: italic;
+      font-size: clamp(28px, 2rem, 36px);
+    }
+
   }
 }

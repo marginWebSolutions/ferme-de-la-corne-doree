@@ -2,11 +2,12 @@
 
 .highlight {
     position: absolute;
-    bottom: -15px; 
-    left: -5%;
+    bottom: -10px; 
+    left: 0;
     height: 30px;
     width: 30%;
-    background: rgba($primary, 0.4);
+    border-bottom: 5px solid rgba($primary, 0.8);
+    // background: rgba($primary, 0.4);
     transition: width 1.3s ease-in-out;
     &--small {
       height: 20px;

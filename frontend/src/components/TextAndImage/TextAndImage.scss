@@ -13,7 +13,13 @@
 	}
 
 	&--reverse {
-		padding: 10vh 5vw;
+		padding: 10vh 0;
+		width: 90vw;
+		margin: auto;
+		@include tablet {
+			justify-content: center;
+			width: 85vw;
+		}
 		.textandimage__text {
 			align-self: flex-end;
 		}

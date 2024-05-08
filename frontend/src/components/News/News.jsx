@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import Article from '../Article/Article';
 import Highlight from '../Highlight/Highlight';
-import Modal from '../Modal/Modal';
+import ModalNews from '../ModalNews/ModalNews';
 import './News.scss';
 
 export default function News() {
@@ -12,8 +12,8 @@ export default function News() {
 	const [newsData, setNewsData] = useState([]);
 	const [selectedArticle, setSelectedArticle] = useState(null);
 
-	const openModal = (article) => {
-		setSelectedArticle(article);
+	const openModal = (news) => {
+		setSelectedArticle(news);
 	};
 
 	const closeModal = () => {
@@ -21,14 +21,17 @@ export default function News() {
 	};
 
 	const handleUpdate = async (updatedArticle) => {
-		const response = await fetch(`/api/actualites/${updatedArticle._id}`, {
-			method: 'PUT',
-			headers: {
-				'Content-Type': 'application/json',
-				Authorization: `Bearer ${token}`,
-			},
-			body: JSON.stringify(updatedArticle),
-		});
+		const response = await fetch(
+			`http://localhost:3001/api/actualites/${updatedArticle._id}`,
+			{
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${token}`,
+				},
+				body: JSON.stringify(updatedArticle),
+			}
+		);
 
 		if (!response.ok) {
 			throw new Error('Failed to update article');
@@ -75,7 +78,7 @@ export default function News() {
 					))}
 				</div>
 				{selectedArticle && (
-					<Modal
+					<ModalNews
 						selectedArticle={selectedArticle}
 						closeModal={closeModal}
 						handleUpdate={handleUpdate}

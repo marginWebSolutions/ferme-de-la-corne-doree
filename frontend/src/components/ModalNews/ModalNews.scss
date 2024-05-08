@@ -1,0 +1,156 @@
+@import '../../Utils/variables.scss';
+@import '../../Utils/mixins.scss';
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 100;
+
+	&__overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+
+	&__content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: $background;
+		padding: 25px;
+		border-radius: 8px;
+		box-shadow: $box-shadow;
+		max-width: 1000px;
+		max-height: 80vh;
+		overflow: auto;
+
+		@include mobile {
+			width: 70vw;
+		}
+
+		&__closing {
+			position: relative;
+			padding: 10px 0;
+
+			&--btn {
+				position: absolute;
+				top: 0;
+				right: 0;
+				height: 20px;
+				color: $text;
+				cursor: pointer;
+			}
+		}
+
+		&__formContainer {
+			&--title {
+				text-align: center;
+				font-size: 1.5rem;
+				padding: 20px;
+				color: $text;
+			}
+
+			&--form {
+				display: flex;
+				flex-direction: column;
+				width: 50vw;
+				gap: 20px;
+
+				@include mobile {
+					width: 100%;
+				}
+			}
+
+			&--inputControl {
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+
+				label {
+					font-size: clamp(12px, 0.875rem, 16px);
+					font-weight: 800;
+
+					@include tablet {
+						font-size: clamp(14px, 1rem, 18px);
+					}
+				}
+
+				input {
+					padding: 15px;
+					background: rgba($text, 0.1);
+					border-radius: 25px;
+					border: none;
+					outline-color: $primary;
+					font-size: clamp(12px, 0.875rem, 16px);
+
+					@include tablet {
+						font-size: clamp(14px, 1rem, 18px);
+					}
+				}
+
+				textarea {
+					min-height: 200px;
+					padding: 15px;
+					background: rgba($text, 0.1);
+					border-radius: 15px;
+					border: none;
+					outline-color: $primary;
+					font-size: clamp(12px, 0.875rem, 16px);
+
+					@include tablet {
+						font-size: clamp(14px, 1rem, 18px);
+					}
+				}
+			}
+
+			.modal__btn {
+				align-self: center;
+				width: 20%;
+				padding: 10px;
+				background-image: linear-gradient(to top, $secondary, $accent);
+				color: $text;
+				font-weight: 800;
+				font-size: clamp(14px, 1rem, 18px);
+				box-shadow: $very-light-box-shadow;
+				border: none;
+				border-radius: 25px;
+				cursor: pointer;
+				position: relative;
+				z-index: 1;
+				transition: all 0.3s ease-in-out;
+
+				&:hover {
+					transform: scale(110%);
+
+					&::after {
+						opacity: 1;
+					}
+				}
+
+				&::after {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					border-radius: 25px;
+					opacity: 0;
+					z-index: -1;
+					transition: opacity 0.3s ease-in;
+				}
+			}
+		}
+	}
+}

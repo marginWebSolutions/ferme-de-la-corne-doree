@@ -21,10 +21,30 @@ exports.getOneCheese = (req, res, next) => {
 // @desc    Create a cheese
 // @route   POST /api/cheeses
 // @access  Private
+// exports.createCheese = (req, res, next) => {
+// 	const cheese = new Cheese({
+// 		title: req.body.title,
+// 		description: req.body.description,
+// 		imageUrl: req.body.imageUrl,
+// 		alt: req.body.alt,
+// 	});
+// 	cheese
+// 		.save()
+// 		.then(() => res.status(201).json({ message: 'Fromage enregistré !' }))
+// 		.catch((error) => res.status(400).json({ error }));
+// };
+
 exports.createCheese = (req, res, next) => {
+	const cheeseObject = JSON.parse(req.body.cheese);
+	delete cheeseObject._id;
+
 	const cheese = new Cheese({
-		...req.body,
+		...cheeseObject,
+		imageUrl: `${req.protocol}://${req.get('host')}/images/${
+			req.file.filename
+		}`,
 	});
+
 	cheese
 		.save()
 		.then(() => res.status(201).json({ message: 'Fromage enregistré !' }))
@@ -35,10 +55,14 @@ exports.createCheese = (req, res, next) => {
 // @route   PUT /api/cheeses/:id
 // @access  Private
 exports.modifyCheese = (req, res, next) => {
-	Cheese.updateOne(
-		{ _id: req.params.id },
-		{ ...req.body, _id: req.params.id }
-	)
+	const cheese = new Cheese({
+		_id: req.params.id,
+		title: req.body.title,
+		description: req.body.description,
+		imageUrl: req.body.imageUrl,
+		alt: req.body.alt,
+	});
+	Cheese.updateOne({ _id: req.params.id }, cheese)
 		.then(() => res.status(200).json({ message: 'Fromage modifiée !' }))
 		.catch((error) => res.status(400).json({ error }));
 };

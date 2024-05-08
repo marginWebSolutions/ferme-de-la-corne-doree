@@ -26,6 +26,7 @@ app.use(bodyParser.json());
 
 // Serve static files
 app.use(express.static(path.join(__dirname, '/../frontend/public')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/../frontend/public/index.html');

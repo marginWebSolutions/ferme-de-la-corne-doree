@@ -1,9 +1,9 @@
 import './Card.scss';
 
 export default function Card({
-	src,
+	imageUrl,
 	alt,
-	caption,
+	title,
 	description,
 	width,
 	height,
@@ -15,14 +15,14 @@ export default function Card({
 	return (
 		<figure className="card">
 			<img
-				src={src}
+				src={imageUrl}
 				alt={alt}
 				width={width}
 				height={height}
 				loading={loading}
 			/>
 			<div className="card__description">
-				<figcaption>{caption}</figcaption>
+				<figcaption>{title}</figcaption>
 				{description}
 			</div>
 			{token && <div className="card__icon">{modifyIcon}</div>}

@@ -2,19 +2,19 @@ const mongoose = require('mongoose');
 
 const cheeseSchema = mongoose.Schema(
 	{
-		src: {
-			type: String,
-			required: true,
-		},
-		alt: {
-			type: String,
-			required: true,
-		},
-		caption: {
+		title: {
 			type: String,
 			required: true,
 		},
 		description: {
+			type: String,
+			required: true,
+		},
+		imageUrl: {
+			type: String,
+			required: true,
+		},
+		alt: {
 			type: String,
 			required: true,
 		},

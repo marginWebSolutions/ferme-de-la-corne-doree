@@ -1,4 +1,5 @@
 const Cheese = require('../models/cheese.model');
+const fs = require('fs');
 
 // @desc    Get all cheeses
 // @route   GET /api/cheeses
@@ -21,25 +22,11 @@ exports.getOneCheese = (req, res, next) => {
 // @desc    Create a cheese
 // @route   POST /api/cheeses
 // @access  Private
-// exports.createCheese = (req, res, next) => {
-// 	const cheese = new Cheese({
-// 		title: req.body.title,
-// 		description: req.body.description,
-// 		imageUrl: req.body.imageUrl,
-// 		alt: req.body.alt,
-// 	});
-// 	cheese
-// 		.save()
-// 		.then(() => res.status(201).json({ message: 'Fromage enregistré !' }))
-// 		.catch((error) => res.status(400).json({ error }));
-// };
-
 exports.createCheese = (req, res, next) => {
-	const cheeseObject = JSON.parse(req.body.cheese);
-	delete cheeseObject._id;
-
 	const cheese = new Cheese({
-		...cheeseObject,
+		title: req.body.title,
+		description: req.body.description,
+		alt: req.body.alt,
 		imageUrl: `${req.protocol}://${req.get('host')}/images/${
 			req.file.filename
 		}`,
@@ -55,23 +42,52 @@ exports.createCheese = (req, res, next) => {
 // @route   PUT /api/cheeses/:id
 // @access  Private
 exports.modifyCheese = (req, res, next) => {
-	const cheese = new Cheese({
-		_id: req.params.id,
-		title: req.body.title,
-		description: req.body.description,
-		imageUrl: req.body.imageUrl,
-		alt: req.body.alt,
-	});
-	Cheese.updateOne({ _id: req.params.id }, cheese)
-		.then(() => res.status(200).json({ message: 'Fromage modifiée !' }))
+	const cheeseObject = req.file
+		? {
+				_id: req.params.id,
+				title: req.body.title,
+				description: req.body.description,
+				imageUrl: `${req.protocol}://${req.get('host')}/images/${
+					req.file.filename
+				}`,
+				alt: req.body.alt,
+		  }
+		: { ...req.body };
+
+	Cheese.findOne({ _id: req.params.id })
+		.then(() => {
+			Cheese.updateOne(
+				{ _id: req.params.id },
+				{ ...cheeseObject, _id: req.params.id }
+			)
+				.then(() =>
+					res.status(200).json({ message: 'Fromage modifiée !' })
+				)
+				.catch((error) => res.status(401).json({ error }));
+		})
 		.catch((error) => res.status(400).json({ error }));
 };
 
 // @desc    Delete a cheese
 // @route   DELETE /api/cheeses/:id
 // @access  Private
+// exports.deleteCheese = (req, res, next) => {
+// 	Cheese.deleteOne({ _id: req.params.id })
+// 		.then(() => res.status(200).json({ message: 'Fromage supprimée !' }))
+// 		.catch((error) => res.status(400).json({ error }));
+// };
+
 exports.deleteCheese = (req, res, next) => {
-	Cheese.deleteOne({ _id: req.params.id })
-		.then(() => res.status(200).json({ message: 'Fromage supprimée !' }))
-		.catch((error) => res.status(400).json({ error }));
+	Cheese.findOne({ _id: req.params.id })
+		.then((cheese) => {
+			const filename = cheese.imageUrl.split('/images/')[1];
+			fs.unlink(`images/${filename}`, () => {
+				Cheese.deleteOne({ _id: req.params.id })
+					.then(() =>
+						res.status(200).json({ message: 'Fromage supprimé !' })
+					)
+					.catch((error) => res.status(401).json({ error }));
+			});
+		})
+		.catch((error) => res.status(500).json({ error }));
 };

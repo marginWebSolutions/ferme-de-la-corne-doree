@@ -21,8 +21,8 @@ app.use((req, res, next) => {
 });
 
 // Middleware that handle the data of the request
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
+app.use(bodyParser.json({ limit: '10mb' }));
 
 // Serve static files
 app.use(express.static(path.join(__dirname, '/../frontend/public')));

@@ -1,12 +1,14 @@
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
+import './ModalCheeses.scss';
 
 export default function ModalCheeses({
 	closeModal,
 	selectedCheese,
 	handleUpdate,
 	handleAdd,
+	handleDelete,
 	action,
 }) {
 	const [updatedItem, setUpdatedItem] = useState(selectedCheese || {});
@@ -25,7 +27,7 @@ export default function ModalCheeses({
 	const handleFileChange = (e) => {
 		setUpdatedItem({
 			...updatedItem,
-			imageUrl: e.target.files[0].name,
+			imageUrl: e.target.files[0],
 		});
 	};
 
@@ -117,9 +119,25 @@ export default function ModalCheeses({
 										onChange={handleChange}
 									></textarea>
 								</div>
-								<button type="submit" className="modal__btn">
-									{action === 'add' ? 'Ajouter' : 'Modifier'}
-								</button>
+								<div className="modal__btn__wrapper">
+									<button
+										type="submit"
+										className="modal__btn"
+									>
+										{action === 'add'
+											? 'Ajouter'
+											: 'Modifier'}
+									</button>
+									{action === 'add' ? null : (
+										<button
+											type="submit"
+											className="modal__btn"
+											onClick={handleDelete}
+										>
+											Supprimer
+										</button>
+									)}
+								</div>
 							</form>
 						</div>
 					</div>

@@ -27,16 +27,29 @@ export default function CheeseGallery() {
 		setAction(null);
 	};
 
+	const fetchCheeseData = async () => {
+		const response = await fetch('http://localhost:3001/api/fromages');
+		const data = await response.json();
+		setCheeseData(data);
+	};
+
 	const handleUpdate = async (updatedCheese) => {
+		const formData = new FormData();
+		formData.append('title', updatedCheese.title);
+		if (updatedCheese.imageUrl instanceof File) {
+			formData.append('image', updatedCheese.imageUrl);
+		}
+		formData.append('alt', updatedCheese.alt);
+		formData.append('description', updatedCheese.description);
+
 		const response = await fetch(
 			`http://localhost:3001/api/fromages/${updatedCheese._id}`,
 			{
 				method: 'PUT',
 				headers: {
-					'Content-Type': 'application/json',
 					Authorization: `Bearer ${token}`,
 				},
-				body: JSON.stringify(updatedCheese),
+				body: formData,
 			}
 		);
 
@@ -44,22 +57,23 @@ export default function CheeseGallery() {
 			throw new Error('Failed to update article');
 		}
 
+		const updatedCheeseData = await response.json();
+
 		setCheeseData(
 			cheeseData.map((cheese) =>
-				cheese._id === updatedCheese._id ? updatedCheese : cheese
+				cheese._id === updatedCheese._id ? updatedCheeseData : cheese
 			)
 		);
+
+		await fetchCheeseData();
 	};
 
 	const handleAdd = async (newCheese) => {
 		const formData = new FormData();
-		console.log(newCheese);
 		formData.append('title', newCheese.title);
 		formData.append('image', newCheese.imageUrl);
 		formData.append('alt', newCheese.alt);
 		formData.append('description', newCheese.description);
-		// formData.append('cheese', JSON.stringify(newCheese));
-		console.log(formData);
 
 		const response = await fetch(`http://localhost:3001/api/fromages`, {
 			method: 'POST',
@@ -72,12 +86,36 @@ export default function CheeseGallery() {
 		if (!response.ok) {
 			throw new Error('Failed to add a cheese');
 		}
+
+		fetchCheeseData();
+	};
+
+	const handleDelete = async () => {
+		const response = await fetch(
+			`http://localhost:3001/api/fromages/${selectedCheese._id}`,
+			{
+				method: 'DELETE',
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			}
+		);
+
+		if (!response.ok) {
+			throw new Error('Failed to delete article');
+		}
+
+		alert('Etes-vous sûr de vouloir supprimer ce fromage ?');
+
+		setCheeseData(
+			cheeseData.filter((cheese) => cheese._id !== selectedCheese._id)
+		);
+
+		closeModal();
 	};
 
 	useEffect(() => {
-		fetch('http://localhost:3001/api/fromages')
-			.then((response) => response.json())
-			.then((data) => setCheeseData(data));
+		fetchCheeseData();
 	}, []);
 
 	return (
@@ -92,8 +130,9 @@ export default function CheeseGallery() {
 					/>
 				</div>
 				<div className="CheeseGallery__Cards">
-					{cheeseData.map((item) => (
-						<React.Fragment key={item._id}>
+					{cheeseData
+						.filter((item) => item._id)
+						.map((item) => (
 							<Card
 								key={item._id}
 								imageUrl={item.imageUrl}
@@ -111,8 +150,7 @@ export default function CheeseGallery() {
 								}
 								loading="lazy"
 							/>
-						</React.Fragment>
-					))}
+						))}
 				</div>
 				{selectedCheese || action === 'add' ? (
 					<ModalCheeses
@@ -120,6 +158,7 @@ export default function CheeseGallery() {
 						closeModal={closeModal}
 						handleUpdate={handleUpdate}
 						handleAdd={handleAdd}
+						handleDelete={handleDelete}
 						action={action}
 					/>
 				) : null}

@@ -16,11 +16,11 @@ export default function Chevrerie() {
 
             <Landing
                 title="Ferme de la corne Dorée"
-                src="./img/taylor-brandon-3HmP1kOdACU-unsplash.jpg"
+                src="./img/bailey-mahon-AlfgSap679Y-unsplash.jpg"
                 texts={[
                     'Élevage de Chèvres Alpines',
-                    'Équitation Western',
-                    'Vente de Fromages',
+                    'Fromages au Lait Cru',
+                    'Production sur Place',
                 ]}
                 alt="Cavalière à la Ferme de la corne dorée, avec un coucher de soleil sur les montagnes du Pilat"
                 width="1920"

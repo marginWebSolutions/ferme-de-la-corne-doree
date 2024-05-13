@@ -91,9 +91,15 @@ export default function Header() {
 						<NavBar key={index} name={item.name} path={item.path} />
 					))}
 					{token && (
-						<button onClick={handleSignOut} className="logout__btn">
-							Deconnexion
-						</button>
+						<li>
+							<a
+								href="/"
+								onClick={handleSignOut}
+								className="logout__btn"
+							>
+								Deconnexion
+							</a>
+						</li>
 					)}
 				</ul>
 				<div
@@ -112,6 +118,17 @@ export default function Header() {
 									onClick={handleBurgerMenu}
 								/>
 							)
+						)}
+						{token && (
+							<li>
+								<a
+									href="/"
+									onClick={handleSignOut}
+									className="logout__btn"
+								>
+									Deconnexion
+								</a>
+							</li>
 						)}
 					</ul>
 				</div>

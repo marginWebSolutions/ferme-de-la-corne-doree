@@ -167,11 +167,11 @@ nav {
 				color: rgba($text, 1);
 				font-size: clamp(0.8rem, 0.9vw, 1rem);
 				text-wrap: nowrap;
-				transition: color 0.1s ease-in-out;
+				transition: all 0.1s ease-in-out;
 				text-transform: uppercase;
 
 				&:hover {
-					color: rgba($text, 0.6);
+					border-bottom: 3px solid rgba($text, 0.8);
 				}
 			}
 

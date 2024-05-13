@@ -93,18 +93,6 @@ export default function ModalCheeses({
 									/>
 								</div>
 								<div className="modal__content__formContainer--inputControl">
-									<label htmlFor="alt">
-										Description de l'image
-									</label>
-									<input
-										type="text"
-										name="alt"
-										id="alt"
-										placeholder="Description de l'image"
-										onChange={handleChange}
-									/>
-								</div>
-								<div className="modal__content__formContainer--inputControl">
 									<label htmlFor="description">
 										Description
 									</label>

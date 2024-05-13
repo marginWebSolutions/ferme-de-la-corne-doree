@@ -36,5 +36,6 @@ app.use('/api/actualites', require('./routes/articles.routes'));
 app.use('/api/fromages', require('./routes/cheeses.routes'));
 app.use('/api/captcha', require('./routes/captcha.routes'));
 app.use('/api/auth', require('./routes/users.routes'));
+app.use('/api/contact', require('./routes/email.routes'));
 
 module.exports = app;

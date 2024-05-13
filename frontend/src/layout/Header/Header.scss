@@ -118,6 +118,7 @@ nav {
 				&:hover {
 					color: rgba($text, 0.3);
 					cursor: no-drop;
+					border-bottom: none;
 				}
 			}
 		}
@@ -184,13 +185,4 @@ nav {
 			border-bottom: 3px solid rgba($primary, 0.8);
 		}
 	}
-}
-
-.logout__btn {
-	font-size: clamp(0.8rem, 0.9vw, 1rem);
-	border: none;
-	background: transparent;
-	text-transform: uppercase;
-	font-weight: 600;
-	cursor: pointer;
 }

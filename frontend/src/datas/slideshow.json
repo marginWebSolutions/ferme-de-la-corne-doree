@@ -1,19 +1,21 @@
 {
     "homeSlideshow": [
-        { "title": "t1", "src": "./img/chema-photo-U-ROch-TGZg-unsplash.jpg", "alt": "description de la photo1", "description": "légende de la photo numéro 1" },
-        { "title": "t2", "src": "./img/fernando-puente-5XCIhfb_Dpc-unsplash.jpg", "alt": "description de la photo2", "description": "légende de la photo numéro 2" },
-        { "title": "t3", "src": "./img/bailey-mahon-AlfgSap679Y-unsplash.jpg", "alt": "description de la photo3", "description": "légende de la photo numéro 3" }
+        { "src": "./img/chema-photo-U-ROch-TGZg-unsplash.jpg", "alt": "description de la photo1", "description": "légende de la photo numéro 1" },
+        { "src": "./img/fernando-puente-5XCIhfb_Dpc-unsplash.jpg", "alt": "description de la photo2", "description": "légende de la photo numéro 2" },
+        { "src": "./img/bailey-mahon-AlfgSap679Y-unsplash.jpg", "alt": "description de la photo3", "description": "légende de la photo numéro 3" }
     ],
     
     "chevrerieSlideshow": [
-        { "title": "t1", "src": "./img/thomas-de-luze-kqhTq4QiZGA-unsplash.jpg", "alt": "description de la photo1", "description": "légende de la photo numéro 1" },
-        { "title": "t2", "src": "./img/sergiu-valena-so8R5rTDTXM-unsplash.jpg", "alt": "description de la photo2", "description": "légende de la photo numéro 2" },
-        { "title": "t3", "src": "./img/jarren-simmons-bzzGg63bzAM-unsplash.jpg", "alt": "description de la photo3", "description": "légende de la photo numéro 3" }
+        { "src": "./img/thomas-de-luze-kqhTq4QiZGA-unsplash.jpg", "alt": "description de la photo1", "description": "légende de la photo numéro 1" },
+        { "src": "./img/sergiu-valena-so8R5rTDTXM-unsplash.jpg", "alt": "description de la photo2", "description": "légende de la photo numéro 2" },
+        { "src": "./img/jarren-simmons-bzzGg63bzAM-unsplash.jpg", "alt": "description de la photo3", "description": "légende de la photo numéro 3" }
     ],
 
     "centreEquestreSlideshow": [
-        { "title": "t1", "src": "./img/soledad-lorieto-FPGuvs1dso0-unsplash.jpg", "alt": "description de la photo1", "description": "légende de la photo numéro 1" },
-        { "title": "t2", "src": "./img/taylor-brandon-3HmP1kOdACU-unsplash.jpg", "alt": "description de la photo2", "description": "légende de la photo numéro 2" },
-        { "title": "t3", "src": "./img/taylor-brandon-3N8aGhfyYP8-unsplash.jpg", "alt": "description de la photo3", "description": "légende de la photo numéro 3" }
+        { "src": "./img/soledad-lorieto-FPGuvs1dso0-unsplash.jpg", "alt": "description de la photo 1", "description": "légende de la photo numéro 1" },
+        { "src": "./img/taylor-brandon-3HmP1kOdACU-unsplash.jpg", "alt": "description de la photo 2", "description": "légende de la photo numéro 2" },
+        { "src": "./img/soledad-lorieto-FPGuvs1dso0-unsplash.jpg", "alt": "description de la photo 3", "description": "légende de la photo numéro 3" },
+        { "src": "./img/taylor-brandon-3HmP1kOdACU-unsplash.jpg", "alt": "description de la photo 4", "description": "légende de la photo numéro 4" },
+        { "src": "./img/taylor-brandon-3N8aGhfyYP8-unsplash.jpg", "alt": "description de la photo 5", "description": "légende de la photo numéro 5" }
     ]
 }

@@ -13,6 +13,8 @@
 
 		@include tablet {
 			width: 85vw;
+			display: flex;
+			flex-direction: column;
 		}
 	}
 
@@ -25,6 +27,7 @@
 		@include mobile {
 			font-size: clamp(28px, 1.5rem, 36px);
 			align-self: center;
+			text-align: center;
 		}
 	}
 

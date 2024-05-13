@@ -39,7 +39,6 @@ export default function CheeseGallery() {
 		if (updatedCheese.imageUrl instanceof File) {
 			formData.append('image', updatedCheese.imageUrl);
 		}
-		formData.append('alt', updatedCheese.alt);
 		formData.append('description', updatedCheese.description);
 
 		const response = await fetch(
@@ -72,7 +71,6 @@ export default function CheeseGallery() {
 		const formData = new FormData();
 		formData.append('title', newCheese.title);
 		formData.append('image', newCheese.imageUrl);
-		formData.append('alt', newCheese.alt);
 		formData.append('description', newCheese.description);
 
 		const response = await fetch(`http://localhost:3001/api/fromages`, {
@@ -123,11 +121,13 @@ export default function CheeseGallery() {
 			<div className="CheeseGallery__container">
 				<div className="CheeseGallery__title title-container">
 					<Highlight tag="h2">Nos Fromages</Highlight>
-					<FontAwesomeIcon
-						icon={faPlus}
-						className="add-icon"
-						onClick={openAddModal}
-					/>
+					{token && (
+						<FontAwesomeIcon
+							icon={faPlus}
+							className="add-icon"
+							onClick={openAddModal}
+						/>
+					)}
 				</div>
 				<div className="CheeseGallery__Cards">
 					{cheeseData
@@ -136,7 +136,7 @@ export default function CheeseGallery() {
 							<Card
 								key={item._id}
 								imageUrl={item.imageUrl}
-								alt={item.alt}
+								alt={`Photo de ${item.title}`}
 								title={item.title}
 								description={item.description}
 								width={372}

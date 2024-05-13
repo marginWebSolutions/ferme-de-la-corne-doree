@@ -1,5 +1,13 @@
+@import '../../Utils/variables.scss';
+
 .modal__btn__wrapper {
 	display: flex;
 	justify-content: center;
 	gap: 20px;
+}
+
+input[type='file']::file-selector-button {
+	border-radius: 20px;
+	border: 2px solid $secondary;
+	background: $background;
 }

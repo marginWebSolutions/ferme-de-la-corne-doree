@@ -26,7 +26,6 @@ exports.createCheese = (req, res, next) => {
 	const cheese = new Cheese({
 		title: req.body.title,
 		description: req.body.description,
-		alt: req.body.alt,
 		imageUrl: `${req.protocol}://${req.get('host')}/images/${
 			req.file.filename
 		}`,
@@ -50,7 +49,6 @@ exports.modifyCheese = (req, res, next) => {
 				imageUrl: `${req.protocol}://${req.get('host')}/images/${
 					req.file.filename
 				}`,
-				alt: req.body.alt,
 		  }
 		: { ...req.body };
 
@@ -71,12 +69,6 @@ exports.modifyCheese = (req, res, next) => {
 // @desc    Delete a cheese
 // @route   DELETE /api/cheeses/:id
 // @access  Private
-// exports.deleteCheese = (req, res, next) => {
-// 	Cheese.deleteOne({ _id: req.params.id })
-// 		.then(() => res.status(200).json({ message: 'Fromage supprimée !' }))
-// 		.catch((error) => res.status(400).json({ error }));
-// };
-
 exports.deleteCheese = (req, res, next) => {
 	Cheese.findOne({ _id: req.params.id })
 		.then((cheese) => {

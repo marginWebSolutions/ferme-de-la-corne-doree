@@ -55,9 +55,9 @@ exports.forwardEmail = (req, res) => {
 
 	transporter.sendMail(mailOptions, (error, data) => {
 		if (error) {
-			res.status(500).send("Erreur lors de l'envoi du mail");
+			res.status(500).send({ message: "Erreur lors de l'envoi du mail" });
 		} else {
-			res.status(200).send('Mail envoyé avec succès');
+			res.status(200).send({ message: 'Mail envoyé avec succès' });
 		}
 	});
 };

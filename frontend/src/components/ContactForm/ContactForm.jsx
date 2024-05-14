@@ -37,16 +37,28 @@ export default function Form() {
 			newFormData.captcha = captchaElement.value;
 		}
 
-		fetch('http://localhost:3001/api/captcha', {
-			method: 'POST',
-			headers: {
-				Accept: 'application/json, text/plain, */*',
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(newFormData),
-		})
-			.then((response) => response.json())
-			.then((data) => {
+		Promise.all([
+			fetch('http://localhost:3001/api/contact', {
+				method: 'POST',
+				headers: {
+					Accept: 'application/json, text/plain, */*',
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(newFormData),
+			}),
+			fetch('http://localhost:3001/api/captcha', {
+				method: 'POST',
+				headers: {
+					Accept: 'application/json, text/plain, */*',
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(newFormData),
+			}),
+		])
+			.then(([contactResponse, captchaResponse]) =>
+				Promise.all([contactResponse.json(), captchaResponse.json()])
+			)
+			.then(([contactData, captchaData]) => {
 				setIsSubmitted(true);
 				setTimeout(() => {
 					setIsSubmitted(false);
@@ -60,6 +72,9 @@ export default function Form() {
 					});
 					setErrorMessage('');
 				}, 5000);
+			})
+			.catch((error) => {
+				console.error('Error:', error);
 			});
 	};
 
@@ -131,8 +146,9 @@ export default function Form() {
 				id="g-recaptcha-response"
 			></div>
 			<div
-				className={`message ${errorMessage ? 'errorMessage' : ''} ${isSubmitted ? 'confirmMessage' : ''
-					}`}
+				className={`message ${errorMessage ? 'errorMessage' : ''} ${
+					isSubmitted ? 'confirmMessage' : ''
+				}`}
 			>
 				{errorMessage}
 				{isSubmitted && 'Merci pour votre message !'}

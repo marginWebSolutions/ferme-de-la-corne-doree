@@ -61,12 +61,20 @@
 
 		&--align-end {
 			align-self: end;
+
+			@include tablet {
+				align-self: center;
+				text-align: center;
+			}
+		}
+
+		@include tablet {
+			align-self: center;
+			text-align: center;
 		}
 
 		@include mobile {
 			font-size: clamp(28px, 1.5rem, 36px);
-			align-self: center;
-			text-align: center;
 		}
 	}
 

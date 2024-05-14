@@ -25,11 +25,13 @@
 		text-transform: uppercase;
 		color: $text;
 
-		@include mobile {
-			font-size: clamp(28px, 1.5rem, 36px);
-			margin-right: 0;
+		@include tablet {
 			align-self: center;
 			text-align: center;
+		}
+
+		@include mobile {
+			font-size: clamp(28px, 1.5rem, 36px);
 		}
 	}
 

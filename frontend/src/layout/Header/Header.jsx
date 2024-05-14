@@ -47,7 +47,7 @@ export default function Header() {
 	const leftNav = [
 		{ name: 'Accueil', path: '/' },
 		{ name: 'Chèvrerie', path: '/chevrerie' },
-		{ name: 'Centre-Equestre', path: '/centre-equestre' },
+		{ name: 'Centre-Équestre', path: '/centre-equestre' },
 	];
 
 	const rightNav = [

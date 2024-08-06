@@ -51,7 +51,7 @@ export default function Header() {
 	];
 
 	const rightNav = [
-		{ name: 'Actualités', path: '#News' },
+		// { name: 'Actualités', path: '#News' },
 		{ name: 'Contact', path: '#Contact' },
 		{ name: 'Coordonnées', path: '#Coordonnees' },
 	];

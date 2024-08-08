@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Field, { FIELD_TYPES } from '../FormInputs/Field/Field';
 import Select from '../FormInputs/Select/Select';
 import './ContactForm.scss';
@@ -20,30 +20,50 @@ export default function Form() {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 	};
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-
+	const handleCaptcha = async () => {
 		const captchaElement = document.querySelector('#g-recaptcha-response');
-		if (captchaElement && !captchaElement.value) {
+		if (!captchaElement.value) {
 			setErrorMessage(
 				'Veuillez cocher la case "Je ne suis pas un robot" ci-dessus.'
 			);
-			return;
+			return false;
 		} else {
 			setErrorMessage('');
 		}
+
 		const newFormData = { ...formData };
 		if (captchaElement && captchaElement.value) {
 			newFormData.captcha = captchaElement.value;
 		}
 
-		fetch('http://localhost:3001/api/captcha', {
+		const response = await fetch('http://localhost:3001/api/captcha', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json, text/plain, */*',
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(newFormData),
+		});
+
+		const data = await response.json();
+		return data.success;
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		const isCaptchaValid = await handleCaptcha();
+		if (!isCaptchaValid) {
+			return;
+		}
+
+		fetch('http://localhost:3001/api/contact', {
+			method: 'POST',
+			headers: {
+				Accept: 'application/json, text/plain, */*',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(formData),
 		})
 			.then((response) => response.json())
 			.then((data) => {
@@ -56,12 +76,23 @@ export default function Form() {
 						email: '',
 						objet: '',
 						message: '',
-						captcha: '',
 					});
 					setErrorMessage('');
 				}, 5000);
 			});
 	};
+
+	useEffect(() => {
+		const script = document.createElement('script');
+		script.src = 'https://www.google.com/recaptcha/api.js';
+		script.async = true;
+		script.defer = true;
+		document.head.appendChild(script);
+
+		return () => {
+			document.head.removeChild(script);
+		};
+	}, []);
 
 	return (
 		<form method="POST" className="contact__form" onSubmit={handleSubmit}>
@@ -131,8 +162,9 @@ export default function Form() {
 				id="g-recaptcha-response"
 			></div>
 			<div
-				className={`message ${errorMessage ? 'errorMessage' : ''} ${isSubmitted ? 'confirmMessage' : ''
-					}`}
+				className={`message ${errorMessage ? 'errorMessage' : ''} ${
+					isSubmitted ? 'confirmMessage' : ''
+				}`}
 			>
 				{errorMessage}
 				{isSubmitted && 'Merci pour votre message !'}

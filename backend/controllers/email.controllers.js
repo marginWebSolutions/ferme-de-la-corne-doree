@@ -15,7 +15,7 @@ exports.forwardEmail = (req, res) => {
 		theme: 'cerberus',
 		product: {
 			name: 'Margin Web Solutions',
-			link: 'marc-villevieille.com',
+			link: 'https://marc-villevieille.com',
 		},
 	});
 
@@ -25,7 +25,7 @@ exports.forwardEmail = (req, res) => {
 			signature: 'Cordialement',
 			name: 'Julie',
 			intro:
-				'Vous avez reçu un email de la part de Mme/Mr ' +
+				'Vous avez reçu un email de la part de ' +
 				req.body.prenom +
 				' ' +
 				req.body.nom,
@@ -33,13 +33,13 @@ exports.forwardEmail = (req, res) => {
 				instructions: `${req.body.message}`,
 				button: [
 					{
-						color: '#22BC66',
+						color: '#e09370cc',
 						text: `Cliquer ici pour répondre à ${req.body.prenom} ${req.body.nom}`,
 						link: 'mailto:' + req.body.email,
 					},
 				],
 			},
-			outro: "Si vous avez des questions, n'hésitez pas à nous contacter.",
+			outro: `Si vous avez des questions, n'hésitez pas à nous <a href="mailto:margin.webdev@gmail.com">contacter</a>.`,
 		},
 	};
 
@@ -55,9 +55,9 @@ exports.forwardEmail = (req, res) => {
 
 	transporter.sendMail(mailOptions, (error, data) => {
 		if (error) {
-			res.status(500).send("Erreur lors de l'envoi du mail");
+			res.status(500).send({ message: "Erreur lors de l'envoi du mail" });
 		} else {
-			res.status(200).send('Mail envoyé avec succès');
+			res.status(200).send({ message: 'Mail envoyé avec succès' });
 		}
 	});
 };

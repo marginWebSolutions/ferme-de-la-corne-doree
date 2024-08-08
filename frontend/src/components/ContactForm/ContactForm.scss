@@ -1,152 +1,153 @@
-@import "../../Utils/variables.scss";
-@import "../../Utils/keyframes.scss";
-@import "../../Utils/mixins.scss";
+@import '../../Utils/variables.scss';
+@import '../../Utils/keyframes.scss';
+@import '../../Utils/mixins.scss';
 
 .contact {
-    &__form {
-        display: flex;
-        flex-direction: column;
-        width: 40vw;
+	&__form {
+		display: flex;
+		flex-direction: column;
+		width: 40vw;
 
-        @include tablet {
-            width: 85vw;
-        }
+		@include tablet {
+			width: 85vw;
+		}
 
-        &__inputs {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            padding: 55px 0 20px;
-            width: 100%;
+		&__inputs {
+			display: flex;
+			flex-direction: column;
+			gap: 30px;
+			padding: 55px 0 20px;
+			width: 100%;
 
-            &--wrapper {
-                display: flex;
-                flex-direction: column;
-                gap: 0.3rem;
-                width: 100%;
-                min-width: 0;
+			&--wrapper {
+				display: flex;
+				flex-direction: column;
+				gap: 0.3rem;
+				width: 100%;
+				min-width: 0;
 
-                label {
-                    text-align: left;
-                    font-size: clamp(12px, 0.875rem, 16px);
-                    font-weight: 800;
+				label {
+					text-align: left;
+					font-size: clamp(12px, 0.875rem, 16px);
+					font-weight: 800;
 
-                    @include tablet {
-                        font-size: clamp(14px, 1rem, 18px);
-                    }
-                }
+					@include tablet {
+						font-size: clamp(14px, 1rem, 18px);
+					}
+				}
 
-                input {
-                    display: flex;
-                    align-items: center;
-                    padding: 15px;
-                    background: rgba($text, 0.1);
-                    border-radius: 25px;
-                    border: none;
-                    outline-color: $primary;
-                    font-size: clamp(12px, 0.875rem, 16px);
+				input {
+					display: flex;
+					align-items: center;
+					padding: 15px;
+					background: rgba($text, 0.1);
+					border-radius: 25px;
+					border: none;
+					outline-color: $primary;
+					font-size: clamp(12px, 0.875rem, 16px);
 
-                    @include tablet {
-                        font-size: clamp(14px, 1rem, 18px);
-                    }
-                }
+					@include tablet {
+						font-size: clamp(14px, 1rem, 18px);
+					}
+				}
 
-                textarea {
-                    display: flex;
-                    align-items: center;
-                    padding: 15px;
-                    height: clamp(95px, 6.25rem, 105px);
-                    background: rgba($text, 0.1);
-                    border-radius: 15px;
-                    border: none;
-                    outline-color: $primary;
-                    font-size: clamp(12px, 0.875rem, 16px);
+				textarea {
+					display: flex;
+					align-items: center;
+					padding: 15px;
+					height: clamp(95px, 6.25rem, 105px);
+					background: rgba($text, 0.1);
+					border-radius: 15px;
+					border: none;
+					outline-color: $primary;
+					font-size: clamp(12px, 0.875rem, 16px);
 
-                    @include tablet {
-                        font-size: clamp(14px, 1rem, 18px);
-                    }
-                }
-            }
+					@include tablet {
+						font-size: clamp(14px, 1rem, 18px);
+					}
+				}
+			}
 
-            &--name-wrapper {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                width: auto;
-                gap: 1rem;
-                box-sizing: border-box;
+			&--name-wrapper {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				width: auto;
+				gap: 1rem;
+				box-sizing: border-box;
 
-                @include mobile {
-                    flex-direction: column;
-                    gap: 2rem;
-                }
-            }
-        }
+				@include mobile {
+					flex-direction: column;
+					gap: 2rem;
+				}
+			}
+		}
 
-        &__btn {
-            display: flex;
-            align-self: center;
-            justify-content: center;
-            align-items: center;
-            background-image: linear-gradient(to top, $secondary, $accent);
-            color: $text;
-            font-weight: 800;
-            font-size: clamp(14px, 1rem, 18px);
-            box-shadow: $very-light-box-shadow;
-            border: none;
-            border-radius: 25px;
-            padding: 15px;
-            width: 10rem;
-            cursor: pointer;
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s ease-in-out;
+		&__btn {
+			display: flex;
+			align-self: center;
+			justify-content: center;
+			align-items: center;
+			background-image: linear-gradient(to top, $secondary, $accent);
+			color: $text;
+			font-weight: 800;
+			font-size: clamp(14px, 1rem, 18px);
+			box-shadow: $very-light-box-shadow;
+			border: none;
+			border-radius: 25px;
+			padding: 15px;
+			width: 10rem;
+			cursor: pointer;
+			position: relative;
+			z-index: 1;
+			transition: all 0.3s ease-in-out;
 
-            &:hover {
-                transform: scale(110%);
+			&:hover {
+				transform: scale(110%);
 
-                &::after {
-                    opacity: 1;
-                }
-            }
+				&::after {
+					opacity: 1;
+				}
+			}
 
-            &::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                border-radius: 25px;
-                opacity: 0;
-                z-index: -1;
-                transition: opacity 0.3s ease-in;
-            }
-        }
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				border-radius: 25px;
+				opacity: 0;
+				z-index: -1;
+				transition: opacity 0.3s ease-in;
+			}
+		}
 
-        .g-recaptcha {
-            align-self: center;
-            margin: 0 0 20px 0;
-        }
+		.g-recaptcha {
+			align-self: center;
+			margin: 0 0 20px 0;
+		}
 
-        .clicked {
-            animation: clicked 0.5s forwards;
-        }
+		.clicked {
+			animation: clicked 0.5s forwards;
+		}
 
-        .message {
-            text-align: center;
-            font-size: clamp(14px, 1rem, 18px);
-            margin: 0 0 20px 0;
-            min-height: 20px;
-        }
+		.message {
+			text-align: center;
+			font-size: clamp(14px, 1rem, 18px);
+			margin: 0 0 20px 0;
+			min-height: 20px;
+			color: $text;
+		}
 
-        .confirmMessage {
-            animation: fadeIn 1s ease-in-out, fadeOut 1s ease-in-out 4s forwards;
-        }
+		.confirmMessage {
+			animation: fadeIn 1s ease-in-out, fadeOut 1s ease-in-out 4s forwards;
+		}
 
-        .errorMessage {
-            color: red;
-            animation: fadeIn 1s ease-in-out, fadeOut 1s ease-in-out 4s forwards;
-        }
-    }
+		.errorMessage {
+			color: red;
+			animation: fadeIn 1s ease-in-out, fadeOut 1s ease-in-out 4s forwards;
+		}
+	}
 }
